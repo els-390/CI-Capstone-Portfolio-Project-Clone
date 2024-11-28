@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 import os
+from django.contrib.messages import constants as messages
 if os.path.isfile('env.py'):
     import env
     DEBUG = True
@@ -33,7 +34,6 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 
 ALLOWED_HOSTS = ['8000-els390-cicapstoneportfo-lluev0m8820.ws.codeinstitute-ide.net','.herokuapp.com']
 
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -47,8 +47,7 @@ INSTALLED_APPS = [
     'blog',
     'contact',
     'projects',
-    'reviews',
-    
+    'reviews', 
 ]
 
 MIDDLEWARE = [
