@@ -15,11 +15,12 @@
                         <div class="card-body">
                             <div class="image-container">
                                 <div class="image-flash">
-                                    <p class="author">Author: {{ projecy.author }}</p>
+                                    <p class="author">Author: {{ project.author }}</p>
                                 </div>
                             </div>
                             <a href="#" class="post-link">
                                 <h2 class="card-title">{{ project.title }}</h2>
+                                <p class="card-text">{{ project.excerpt }}</p>
                             </a>
 
                             <hr />
@@ -49,4 +50,8 @@
 </div>
 
 <!-- index.html content ends here -->
+{% endblock %}
+
+{% block copyright %}
+    Copyright 2024, Ellie Carpenter
 {% endblock %}
