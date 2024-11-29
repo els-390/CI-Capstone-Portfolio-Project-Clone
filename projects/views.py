@@ -6,4 +6,5 @@ from .models import Project
 
 class ProjectList(generic.ListView):
     queryset = Project.objects.filter(status=1)
-    template_name = "project_list.html"
+    template_name = "projects/index.html"
+    paginate_by = 6
