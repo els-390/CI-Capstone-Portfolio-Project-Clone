@@ -16,17 +16,17 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include 
-from about.views import my_about
-from blog.views import my_blog
-from contact.views import my_contact
-from reviews.views import my_reviews
+# from about.views import my_about
+# from blog.views import my_blog
+# from contact.views import my_contact
+# from reviews.views import my_reviews
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('about', my_about, name='about'),
-    path('blog/', my_blog, name='blog'),
-    path('contact/', my_contact, name='contact'),
+    # path('about', my_about, name='about'),
+    # path('blog/', my_blog, name='blog'),
+    # path('contact/', my_contact, name='contact'),
     path('', include("projects.urls"), name="projects-urls"),
-    path('reviews/', my_reviews, name='reviews'),
+    # path('reviews/', my_reviews, name='reviews'),
     path('summernote/', include('django_summernote.urls')),
 ]
