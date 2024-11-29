@@ -5,5 +5,5 @@ from .models import Project
 # Create your views here.
 
 class ProjectList(generic.ListView):
-    queryset = Project.objects.all()
+    queryset = Project.objects.filter(status=1)
     template_name = "project_list.html"
