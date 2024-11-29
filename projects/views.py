@@ -5,6 +5,6 @@ from .models import Project
 # Create your views here.
 
 class ProjectList(generic.ListView):
-    model = Project
-    queryset = Project.objects.all()
-    template_name = "project_list.html"
+    queryset = Project.objects.filter(status=1)
+    template_name = "projects/index.html"
+    paginate_by = 6
