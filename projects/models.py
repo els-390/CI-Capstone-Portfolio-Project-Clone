@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
-# from cloudinary.models import CloudinaryField
+from cloudinary.models import CloudinaryField
 
 STATUS = ((0, "Draft"), (1, "Published"))
 
@@ -16,7 +16,7 @@ class Project(models.Model):
     author = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name="project_posts"
     )
-    # featured_image = CloudinaryField('image', default='placeholder')
+    featured_image = CloudinaryField('image', default='placeholder')
     content = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
     status = models.IntegerField(choices=STATUS, default=0)
@@ -28,23 +28,12 @@ class Project(models.Model):
 
     def __str__(self):
         return f"{self.title} | written by {self.author}"
-
-
+    
 class Comment(models.Model):
-    """
-    Stores a single comment entry related to :model:`auth.User`
-    and :model:`project.Post`.
-    """
-    post = models.ForeignKey(Project, on_delete=models.CASCADE,
-                             related_name="comments")
+    project = models.ForeignKey(
+        Project, on_delete=models.CASCADE, related_name="comments")
     author = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name="commenter")
-    body = models.TextField()
-    created_on = models.DateTimeField(auto_now_add=True)
+    content = models.TextField()
     approved = models.BooleanField(default=False)
-
-    class Meta:
-        ordering = ["created_on"]
-
-    def __str__(self):
-        return f"Comment {self.body} by {self.author}"
+    created_on = models.DateTimeField(auto_now_add=True)
