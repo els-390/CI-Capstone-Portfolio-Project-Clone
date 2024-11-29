@@ -28,29 +28,26 @@ def project_detail(request, slug):
     """
     queryset = Project.objects.filter(status=1)
     project = get_object_or_404(queryset, slug=slug)
-    comments = project.comments.all().order_by("-created_on")
-    comment_count = project.comments.filter(approved=True).count()
-    if request.method == "POST":
-        comment_form = CommentForm(data=request.POST)
-        if comment_form.is_valid():
-            comment = comment_form.save(commit=False)
-            comment.author = request.user
-            comment.project = project
-            comment.save()
-            messages.add_message(
-                request, messages.SUCCESS,
-                'Comment submitted and awaiting approval'
-            )
+    # comments = project.comments.all().order_by("-created_on")
+    # comment_count = project.comments.filter(approved=True).count()
+    # if request.method == "POST":
+    #     comment_form = CommentForm(data=request.POST)
+    #     if comment_form.is_valid():
+    #         comment = comment_form.save(commit=False)
+    #         comment.author = request.user
+    #         comment.project = project
+    #         comment.save()
+    #         messages.add_message(
+    #             request, messages.SUCCESS,
+    #             'Comment submitted and awaiting approval'
+    # )
+        
     
-    comment_form = CommentForm()
+    # comment_form = CommentForm()
 
     return render(
         request,
-        "projects/project_detail",
-        {
-            "project": project,
-            "comments": comments,
-            "comment_count": comment_count,
-            "comment_form": comment_form
-        },
+        "projects/project_detail.html",
+        {"project": project,
+        "coder": "Ellie Carpenter"},
     )
