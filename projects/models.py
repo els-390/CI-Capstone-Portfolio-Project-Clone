@@ -32,15 +32,22 @@ class Project(models.Model):
     def __str__(self):
         return f"{self.title} | written by {self.author}"
     
+
 class Comment(models.Model):
-    project = models.ForeignKey(Project, on_delete=models.CASCADE, related_name="comments")
-    author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="commenter")
-    content = models.TextField()
-    approved = models.BooleanField(default=False)
+    """
+    Stores a single comment entry related to :model:`auth.User`
+    and :model:`blog.Post`.
+    """
+    project = models.ForeignKey(Project, on_delete=models.CASCADE,
+                             related_name="comments")
+    author = models.ForeignKey(
+        User, on_delete=models.CASCADE, related_name="commenter")
+    body = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
-    
+    approved = models.BooleanField(default=False)
+
     class Meta:
         ordering = ["created_on"]
 
     def __str__(self):
-        return f"Comment {self.content} by {self.author}"
+        return f"Comment {self.body} by {self.author}"
