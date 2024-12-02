@@ -52,5 +52,6 @@ def project_detail(request, slug):
         "project": project,
         "comments": comments,
         "comment_count": comment_count,
+        "comment_form": comment_form,
     },
 )
