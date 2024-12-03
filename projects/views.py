@@ -5,23 +5,22 @@ from django.http import HttpResponseRedirect
 from .models import Project, Comment
 from .forms import CommentForm
 
-# from .forms import CommentForm
-
 # Create your views here.
+
 
 class ProjectList(generic.ListView):
     queryset = Project.objects.filter(status=1)
     template_name = "projects/index.html"
     paginate_by = 6
-    
+
 
 def project_detail(request, slug):
     """
-    Display an individual :model:projects.Project`.
+    Display an individual :model:`projects.Project`.
 
     **Context**
 
-    ``project``
+    ``  ``
         An instance of :model:`projects.Project`.
 
     **Template:**
@@ -42,22 +41,21 @@ def project_detail(request, slug):
             messages.add_message(
                 request, messages.SUCCESS,
                 'Comment submitted and awaiting approval'
-    )
-        
+            )
     
     comment_form = CommentForm()
 
     return render(
-    request,
-    "projects/project_detail.html",
-    {
-        "project": project,
-        "comments": comments,
-        "comment_count": comment_count,
-        "comment_form": comment_form,
-    },
-)
-    
+        request,
+        "projects/project_detail.html",
+        {
+            "project": project,
+            "comments": comments,
+            "comment_count": comment_count,
+            "comment_form": comment_form
+        },
+    )
+
 
 def comment_edit(request, slug, comment_id):
     """
