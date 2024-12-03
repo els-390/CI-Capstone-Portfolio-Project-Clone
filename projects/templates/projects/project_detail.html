@@ -1,4 +1,4 @@
-{% extends 'base.html' %} 
+{% extends 'base.html' %}
 {% load static %}
 {% load crispy_forms_tags %}
 
@@ -18,7 +18,6 @@
         </div>
     </div>
 </div>
-
 <div class="container">
     <div class="row">
         <div class="col card mb-4  mt-3 left  top">
@@ -75,9 +74,9 @@
                 {% if user.is_authenticated %}
                 <h3>Leave a comment:</h3>
                 <p>Posting as: {{ user.username }}</p>
-                <form id="commentForm" method="project. style="margin-top: 1.3em;">
-                    {{ comment_form | crispy }}
+                <form id="commentForm" method="POST" style="margin-top: 1.3em;">
                     {% csrf_token %}
+                    {{ comment_form | crispy }}
                     <button id="submitButton" type="submit" class="btn btn-signup btn-lg">Submit</button>
                 </form>
                 {% else %}
