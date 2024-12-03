@@ -9,6 +9,20 @@ from .forms import CommentForm
 
 
 class ProjectList(generic.ListView):
+    """
+    Returns all published projects in :model:`projects.Project`
+    and displays them in a page of six posts. 
+    **Context**
+
+    ``queryset``
+        All published instances of :model:`projects.Project`
+    ``paginate_by``
+        Number of projects per page.
+        
+    **Template:**
+
+    :template `projects/index.html`
+    """
     queryset = Project.objects.filter(status=1)
     template_name = "projects/index.html"
     paginate_by = 6
@@ -20,12 +34,12 @@ def project_detail(request, slug):
 
     **Context**
 
-    ``  ``
+    ``project``
         An instance of :model:`projects.Project`.
 
     **Template:**
 
-    :template:`projects/project_detail.html`
+    :template:`blog/post_detail.html`
     """
     queryset = Project.objects.filter(status=1)
     project = get_object_or_404(queryset, slug=slug)
@@ -36,7 +50,7 @@ def project_detail(request, slug):
         if comment_form.is_valid():
             comment = comment_form.save(commit=False)
             comment.author = request.user
-            comment.project = project
+            comment.project= project
             comment.save()
             messages.add_message(
                 request, messages.SUCCESS,
@@ -59,7 +73,16 @@ def project_detail(request, slug):
 
 def comment_edit(request, slug, comment_id):
     """
-    view to edit comments
+    Display an individual comment for edit.
+
+    **Context**
+
+    ``project``
+        An instance of :model:`projects.Project`.
+    ``comment``
+        A single comment related to the project.
+    ``comment_form``
+        An instance of :form:`projects.CommentForm`
     """
     if request.method == "POST":
 
@@ -78,12 +101,19 @@ def comment_edit(request, slug, comment_id):
             messages.add_message(request, messages.ERROR,
                                  'Error updating comment!')
 
-    return HttpResponseRedirect(reverse('project_detail', args=[slug]))
+    return HttpResponseRedirect(reverse('post_detail', args=[slug]))
 
 
 def comment_delete(request, slug, comment_id):
     """
-    view to delete comment
+    Delete an individual comment.
+
+    **Context**
+
+    ``project``
+        An instance of :model:`projects.Project`.
+    ``comment``
+        A single comment related to the project.
     """
     queryset = Project.objects.filter(status=1)
     project = get_object_or_404(queryset, slug=slug)
