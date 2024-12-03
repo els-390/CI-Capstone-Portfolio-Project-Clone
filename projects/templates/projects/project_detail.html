@@ -7,9 +7,9 @@
     <div class="container">
         <div class="row g-0">
             <div class="col-md-6 masthead-text">
-                <!-- Project title goes in these h1 tags -->
+                <!-- Post title goes in these h1 tags -->
                 <h1 class="project.title">{{ project.title }}</h1>
-                <!-- Project author goes before the | the project.s created date goes after -->
+                <!-- Post author goes before the | the project.s created date goes after -->
                 <p class="project.subtitle">{{ project.author }} | {{ project.created_on }}</p>
             </div>
             <div class="d-none d-md-block col-md-6 masthead-image">
@@ -74,7 +74,7 @@
                 {% if user.is_authenticated %}
                 <h3>Leave a comment:</h3>
                 <p>Posting as: {{ user.username }}</p>
-                <form id="commentForm" method="POST" style="margin-top: 1.3em;">
+                <form id="commentForm" method=" " style="margin-top: 1.3em;">
                     {% csrf_token %}
                     {{ comment_form | crispy }}
                     <button id="submitButton" type="submit" class="btn btn-signup btn-lg">Submit</button>
