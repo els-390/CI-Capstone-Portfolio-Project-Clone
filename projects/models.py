@@ -6,10 +6,9 @@ STATUS = ((0, "Draft"), (1, "Published"))
 
 # Create your models here.
 
-
 class Project(models.Model):
     """
-    Stores a single project project entry reated to :model:`auth.User`.
+    Stores a single project entry reated to :model:`auth.User`.
     """
     title = models.CharField(max_length=200, unique=True)
     slug = models.SlugField(max_length=200, unique=True)
@@ -18,9 +17,6 @@ class Project(models.Model):
     )
     featured_image = CloudinaryField('image', default='placeholder')
     content = models.TextField()
-    technologies = models.TextField('html', default='placeholder')
-    repository = models.URLField('url', default='https://default.com')
-    deployed_site = models.URLField('url', default='https://default.com')
     created_on = models.DateTimeField(auto_now_add=True)
     status = models.IntegerField(choices=STATUS, default=0)
     excerpt = models.TextField(blank=True)
@@ -31,7 +27,7 @@ class Project(models.Model):
 
     def __str__(self):
         return f"{self.title} | written by {self.author}"
-    
+
 
 class Comment(models.Model):
     """
