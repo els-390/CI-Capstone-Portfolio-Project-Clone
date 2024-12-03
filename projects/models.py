@@ -36,7 +36,7 @@ class Project(models.Model):
 class Comment(models.Model):
     """
     Stores a single comment entry related to :model:`auth.User`
-    and :model:`blog.Post`.
+    and :model:`projects.Project`.
     """
     project = models.ForeignKey(Project, on_delete=models.CASCADE,
                              related_name="comments")
