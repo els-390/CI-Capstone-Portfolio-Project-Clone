@@ -15,12 +15,11 @@
                     <div class="card mb-4">
                         <div class="card-body">
                             <div class="image-container">
-                                {% if project.featured_image %}
-                                <img class="card-img-top" src="{{ project.featured_image.url }}"
-                                    alt="{{ project.title }}">
-                                {% else %}
+                                {% if "placeholder" in project.featured_image.url %}
                                 <img class="card-img-top" src="{% static 'images/default.jpg' %}"
                                     alt="placeholder image">
+                                {% else %}
+                                <img class="card-img-top" src=" {{ project.featured_image.url }}" alt="{{ project.title }}">
                                 {% endif %}
                                 <div class="image-flash">
                                     <p class="author">Author: {{ project.author }}</p>

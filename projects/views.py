@@ -39,7 +39,7 @@ def project_detail(request, slug):
 
     **Template:**
 
-    :template:`blog/post_detail.html`
+    :template:`projects/project_detail.html`
     """
     queryset = Project.objects.filter(status=1)
     project = get_object_or_404(queryset, slug=slug)
@@ -56,6 +56,7 @@ def project_detail(request, slug):
                 request, messages.SUCCESS,
                 'Comment submitted and awaiting approval'
             )
+        
     
     comment_form = CommentForm()
 
@@ -101,7 +102,7 @@ def comment_edit(request, slug, comment_id):
             messages.add_message(request, messages.ERROR,
                                  'Error updating comment!')
 
-    return HttpResponseRedirect(reverse('post_detail', args=[slug]))
+    return HttpResponseRedirect(reverse('project_detail', args=[slug]))
 
 
 def comment_delete(request, slug, comment_id):
