@@ -118,6 +118,12 @@ CSRF_TRUSTED_ORIGINS = [
     "https://*.herokuapp.com"
 ]
 
+CLOUDINARY_URL = os.environ.get('CLOUDINARY_URL')
+
+CLOUDINARY = {
+    'secure': True,
+}
+
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
 
