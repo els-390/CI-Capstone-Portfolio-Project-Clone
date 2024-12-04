@@ -24,11 +24,10 @@ from django.urls import path, include
 urlpatterns = [
     # path('blog/', my_blog, name='blog'),
     # path('contact/', my_contact, name='contact'),
-    # path('reviews/', my_reviews, name='reviews'),
-    # path('summernote/', include('django_summernote.urls')),
     path("about/", include("about.urls"), name="about-urls"),
     path("accounts/", include("allauth.urls")),
     path('admin/', admin.site.urls),
+    path('reviews/', include("reviews.urls"), name="review-urls"),
     path('summernote/', include('django_summernote.urls')),
     path('', include("projects.urls"), name="projects-urls"),
-    ]
+]
