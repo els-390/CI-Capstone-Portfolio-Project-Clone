@@ -1,6 +1,6 @@
 from django.views.generic import ListView
 from django.urls import reverse_lazy
-from django.views.generic.edit import CreateView, UpdateView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
@@ -38,3 +38,19 @@ def add_review(request):
         form = ReviewForm()
 
     return render(request, 'reviews/add_review.html', {'form': form})
+
+
+class ReviewUpdateView(UpdateView):
+    model = Review
+    fields = ['title', 'content', 'rating']
+    template_name = 'review_form.html'  # Reuse the form template for adding/editing reviews
+    context_object_name = 'review'
+    success_url = reverse_lazy('reviews:reviews_list')  # Ensure the URL is correctly named
+    
+    from django.views.generic.edit import DeleteView
+
+class ReviewDeleteView(DeleteView):
+    model = Review
+    template_name = 'review_confirm_delete.html'  # Create this confirmation template
+    context_object_name = 'review'
+    success_url = reverse_lazy('reviews:reviews_list')  # Redirect after deletion

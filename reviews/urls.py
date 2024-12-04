@@ -1,8 +1,11 @@
 from django.urls import path
-from . import views
+from .views import ReviewListView, ReviewCreateView, ReviewUpdateView, ReviewDeleteView, add_review
+
+app_name = 'reviews'
 
 urlpatterns = [
-    # Example of a single review view, using the `review` name.
-    path('reviews/', views.ReviewListView.as_view(), name='reviews_list'),
-    path('reviews/add/', views.add_review, name='add_review'),
+    path('', ReviewListView.as_view(), name='reviews_list'),
+    path('add/', add_review, name='add_review'),
+    path('<int:pk>/edit/', ReviewUpdateView.as_view(), name='edit_review'),
+    path('<int:pk>/delete/', ReviewDeleteView.as_view(), name='delete_review'),
 ]
