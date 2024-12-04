@@ -13,8 +13,8 @@
                 <div>
                     {% for review in reviews %}
                     <div>
-                        <h3>{{ review.title }}</h3>
-                        <p><strong>By:</strong> {{ review.user.username }} on {{ review.created_on|date:"F j, Y" }}</p>
+                        <h3>{{ review.review_title }}</h3>
+                        <p><strong>By:</strong> {{ review.author}} on {{ review.created_on|date:"F j, Y" }}</p>
                         <p><strong>Rating:</strong> {{ review.rating }}/5</p>
                         <p>{{ review.content }}</p>
                         <hr>
