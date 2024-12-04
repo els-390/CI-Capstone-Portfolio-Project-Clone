@@ -31,7 +31,7 @@ def add_review(request):
             review = form.save(commit=False)
             review.author = request.user
             review.save()
-            return redirect('review_list')
+            return redirect('reviews_list')
     else:
         form = ReviewForm()
 
