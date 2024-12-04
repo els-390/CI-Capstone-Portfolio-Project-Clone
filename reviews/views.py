@@ -1,6 +1,6 @@
 from django.views.generic import ListView
 from django.urls import reverse_lazy
-from django.views.generic.edit import CreateView
+from django.views.generic.edit import CreateView, UpdateView
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
@@ -20,7 +20,7 @@ def review_list(request):
 
 class ReviewCreateView(CreateView):
     model = Review
-    fields = ['title', 'content', 'rating']
+    fields = ['review_title', 'content', 'rating']
     template_name = 'review_form.html'  # Replace with your template
     success_url = reverse_lazy('review_list')   
 
@@ -38,16 +38,3 @@ def add_review(request):
         form = ReviewForm()
 
     return render(request, 'reviews/add_review.html', {'form': form})
-
-def edit_review(request, pk):
-    review = get_object_or_404(Review, pk=pk)
-    if request.method == "POST":
-        form = ReviewForm(request.POST, instance=review)
-        if form.is_valid():
-            form.save()
-            messages.add_message(request, messages.SUCCESS, 'Review Updated!')
-            return redirect('reviews_list')  # Replace with your reviews list view name
-        else:
-            form = ReviewForm(instance=review)
-            messages.add_message(request, messages.ERROR, 'Error updating review!')
-    return render(request, 'reviews/edit_review.html', {'form': form})
