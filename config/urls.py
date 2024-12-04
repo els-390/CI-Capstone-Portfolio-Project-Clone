@@ -16,10 +16,6 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include 
-# from about.views import my_about
-# from blog.views import my_blog
-# from contact.views import my_contact
-# from reviews.views import my_reviews
 
 urlpatterns = [
     # path('blog/', my_blog, name='blog'),

@@ -1,19 +1,24 @@
 {% extends "base.html" %}
 {% block content %}
-<h1>Reviews</h1>
-<a href="{% url 'add_review' %}" class="btn btn-primary">Add Review</a>
-<hr>
-<div>
-    {% for review in reviews %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+<div class="col-12 col-md-6 my-5">
+    <h1>Reviews</h1>
+    <a href="{% url 'add_review' %}" class="btn btn-primary">Add Review</a>
+    <hr>
     <div>
-        <h3>{{ review.title }}</h3>
-        <p><strong>By:</strong> {{ review.user.username }} on {{ review.created_on|date:"F j, Y" }}</p>
-        <p><strong>Rating:</strong> {{ review.rating }}/5</p>
-        <p>{{ review.content }}</p>
-        <hr>
+        {% for review in reviews %}
+        <div>
+            <h3>{{ review.title }}</h3>
+            <p><strong>By:</strong> {{ review.user.username }} on {{ review.created_on|date:"F j, Y" }}</p>
+            <p><strong>Rating:</strong> {{ review.rating }}/5</p>
+            <p>{{ review.content }}</p>
+            <hr>
+        </div>
+        {% empty %}
+        <p>No reviews yet. Be the first to write one!</p>
     </div>
-    {% empty %}
-    <p>No reviews yet. Be the first to write one!</p>
     {% endfor %}
 </div>
 {% endblock %}
