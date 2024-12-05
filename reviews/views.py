@@ -64,8 +64,6 @@ def edit_review(request, review_id):
 
 class ReviewDeleteView(DeleteView):
     model = Review
-    template_name = 'reviews/review_confirm_delete.html'
-    context_object_name = 'review'
     success_url = '/reviews/'
 
 def review_delete(request, review_id):
