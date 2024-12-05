@@ -1,9 +1,8 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from reviews.models import ContactForm
+from about.models import ContactRequest
 
 # Create your views here.
 
-def Contact(request):
-    contacts = Contact.objects.all()
+def contact(request):
     return render(request, 'contact.html', {'contact': contact})
