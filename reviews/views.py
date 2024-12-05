@@ -91,16 +91,29 @@ class ReviewDeleteView(DeleteView):
     context_object_name = 'review'
     success_url = reverse_lazy('review')
 
+# def review_delete(request, review_id):
+#     queryset = Review.objects.filter(status=1)
+#     review = get_object_or_404(queryset)
+#     review = get_object_or_404(Review, pk=review_id)
+
+#     if review.author == request.user:
+#         review.delete()
+#         messages.add_message(request, messages.SUCCESS, 'Review deleted!')
+#     else:
+#         messages.add_message(request, messages.ERROR,
+#                              'You can only delete your own review!')
+
+#     return HttpResponseRedirect(reverse('delete_review'))
+
 def review_delete(request, review_id):
-    queryset = Review.objects.filter(status=1)
-    review = get_object_or_404(queryset)
+    # Correct the filtering condition by using 'approved' instead of 'status'
     review = get_object_or_404(Review, pk=review_id)
 
+    # Check if the review belongs to the current user
     if review.author == request.user:
         review.delete()
         messages.add_message(request, messages.SUCCESS, 'Review deleted!')
     else:
-        messages.add_message(request, messages.ERROR,
-                             'You can only delete your own review!')
+        messages.add_message(request, messages.ERROR, 'You can only delete your own review!')
 
-    return HttpResponseRedirect(reverse('delete_review'))
+    return HttpResponseRedirect(reverse('review'))
