@@ -44,27 +44,6 @@ class ReviewUpdateView(UpdateView):
     context_object_name = 'review'
     success_url = reverse_lazy('review')
 
-# @login_required
-# def edit_review(request, review_id):
-#     if request.method == "POST":
-#         queryset = Review.objects.filter(status=1)
-#         review = get_object_or_404(queryset)
-#         review = get_object_or_404(Review, pk=review_id)
-#         review_form = ReviewForm(data=request.POST, instance=review)
-
-#         if review_form.is_valid() and review.author == request.user:
-#             review = review_form.save(commit=False)
-#             review.review = review
-#             review.approved = False
-#             review.save()
-#             messages.add_message(request, messages.SUCCESS, 'Review Updated!')
-#         else:
-#             messages.add_message(request, messages.ERROR,
-#                                  'Error updating your review!')
-
-#     return HttpResponseRedirect(reverse('edit_review', args=[review_id]))
-
-
 @login_required
 def edit_review(request, review_id):
     review = get_object_or_404(Review, pk=review_id)
@@ -83,37 +62,17 @@ def edit_review(request, review_id):
 
     return render(request, 'reviews/edit_review.html', {'form': review_form, 'review': review})
 
-
-
 class ReviewDeleteView(DeleteView):
     model = Review
-    template_name = 'review_list.html'
-    context_object_name = 'review'
-    success_url = reverse_lazy('review')
-
-# def review_delete(request, review_id):
-#     queryset = Review.objects.filter(status=1)
-#     review = get_object_or_404(queryset)
-#     review = get_object_or_404(Review, pk=review_id)
-
-#     if review.author == request.user:
-#         review.delete()
-#         messages.add_message(request, messages.SUCCESS, 'Review deleted!')
-#     else:
-#         messages.add_message(request, messages.ERROR,
-#                              'You can only delete your own review!')
-
-#     return HttpResponseRedirect(reverse('delete_review'))
+    success_url = '/reviews/'
 
 def review_delete(request, review_id):
-    # Correct the filtering condition by using 'approved' instead of 'status'
     review = get_object_or_404(Review, pk=review_id)
 
-    # Check if the review belongs to the current user
     if review.author == request.user:
         review.delete()
         messages.add_message(request, messages.SUCCESS, 'Review deleted!')
     else:
         messages.add_message(request, messages.ERROR, 'You can only delete your own review!')
 
-    return HttpResponseRedirect(reverse('review'))
+        return HttpResponseRedirect(reverse('review', args=[slug]))

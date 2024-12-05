@@ -1,7 +1,14 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from .forms import ContactForm  # Import your form class
 
-# Create your views here.
+def contact_view(request):
+    if request.method == 'POST':
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            # Process the form (e.g., save to database, send email)
+            form.save()  # Example if your form is a ModelForm
+    else:
+        form = ContactForm()  # Instantiate an empty form
 
-def my_contact(request):
-    return HttpResponse("Hello, Contact!")
+    # Pass the form instance to the template
+    return render(request, 'contact.html', {'contact_form': form})

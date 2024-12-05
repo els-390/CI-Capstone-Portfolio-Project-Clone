@@ -8,8 +8,6 @@ class Review(models.Model):
     """
     author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="reviewer")
     reviewer_name = models.CharField(max_length=100, default='Your Name')
-    client = models.CharField(max_length=100)
-    project = models.CharField(max_length=100)
     review_title = models.CharField(max_length=100)
     content = models.TextField()
     rating = models.PositiveSmallIntegerField(
