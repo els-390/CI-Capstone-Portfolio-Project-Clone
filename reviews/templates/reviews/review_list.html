@@ -17,19 +17,17 @@
                         <p><strong>By:</strong> {{ review.author}} on {{ review.created_on|date:"F j, Y" }}</p>
                         <p><strong>Rating:</strong> {{ review.rating }}/5</p>
                         <p>{{ review.content }}</p>
+                        {% if user.is_authenticated and review.author == user %}
+                        <a href="{% url 'edit_review' review.pk %}" class="btn btn-primary">Edit</a>
+                        <a href="{% url 'delete_review' review.pk %}" class="btn btn-danger">Delete</a>
+                        {% endif %}
                         <hr>
-
-                        <!-- {% if user.is_authenticated and review.author == user %}
-                        <a href="{% url 'reviews:edit_review' review.pk %}" class="btn btn-primary">Edit</a>
-                        <a href="{% url 'reviews:delete_review' review.pk %}" class="btn btn-danger">Delete</a>
-                      {% endif %} -->
                     </div>
                     {% empty %}
                     <p>No reviews yet. Be the first to write one!</p>
-                    {% endfor %}              
+                    {% endfor %}
+                </div>
             </div>
         </div>
     </div>
-</div>
-{% endblock %}
-
+    {% endblock %}
