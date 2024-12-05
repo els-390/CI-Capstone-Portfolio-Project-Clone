@@ -1,5 +1,5 @@
 from django.views.generic import ListView
-from django.urls import reverse_lazy
+from django.urls import reverse, reverse_lazy
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
@@ -12,21 +12,19 @@ class ReviewListView(ListView):
     model = Review
     template_name = 'review_list.html'
     context_object_name = 'reviews'
-    
+
 def review_list(request):
-    """View to display all reviews."""
-    review = Review.objects.all().order_by('-created_on')
+    reviews = Review.objects.all().order_by('-created_on')
     return render(request, 'reviews/review_list.html', {'reviews': reviews})
 
 class ReviewCreateView(CreateView):
     model = Review
     fields = ['review_title', 'content', 'rating']
     template_name = 'add_review.html'
-    success_url = reverse_lazy('review_list')   
+    success_url = reverse_lazy('review_list')
 
 @login_required
 def add_review(request):
-    """View to allow logged-in users to add a review."""
     if request.method == 'POST':
         form = ReviewForm(request.POST)
         if form.is_valid():
@@ -44,12 +42,11 @@ class ReviewUpdateView(UpdateView):
     fields = ['review_title', 'content', 'rating']
     template_name = 'add_review.html'
     context_object_name = 'review'
-    success_url = reverse_lazy('reviews:review_list')
- 
+    success_url = reverse_lazy('review_list')
+
 @login_required
 def edit_review(request, review_id):
     if request.method == "POST":
-
         queryset = Review.objects.filter(status=1)
         review = get_object_or_404(queryset)
         review = get_object_or_404(Review, pk=review_id)
@@ -66,14 +63,13 @@ def edit_review(request, review_id):
                                  'Error updating your review!')
 
     return HttpResponseRedirect(reverse('review_list'))
-    
 
 class ReviewDeleteView(DeleteView):
     model = Review
     template_name = 'review_list.html'
     context_object_name = 'review'
-    success_url = reverse_lazy('reviews:review_list')
-    
+    success_url = reverse_lazy('review_list')
+
 def review_delete(request, review_id):
     queryset = Review.objects.filter(status=1)
     review = get_object_or_404(queryset)
