@@ -21,7 +21,7 @@ class ReviewCreateView(CreateView):
     model = Review
     fields = ['review_title', 'content', 'rating']
     template_name = 'add_review.html'
-    success_url = reverse_lazy('review_list')
+    success_url = reverse_lazy('review')
 
 @login_required
 def add_review(request):
@@ -31,7 +31,7 @@ def add_review(request):
             review = form.save(commit=False)
             review.author = request.user
             review.save()
-            return redirect('review_list')
+            return redirect('review')
     else:
         form = ReviewForm()
 
@@ -42,33 +42,54 @@ class ReviewUpdateView(UpdateView):
     fields = ['review_title', 'content', 'rating']
     template_name = 'add_review.html'
     context_object_name = 'review'
-    success_url = reverse_lazy('review_list')
+    success_url = reverse_lazy('review')
+
+# @login_required
+# def edit_review(request, review_id):
+#     if request.method == "POST":
+#         queryset = Review.objects.filter(status=1)
+#         review = get_object_or_404(queryset)
+#         review = get_object_or_404(Review, pk=review_id)
+#         review_form = ReviewForm(data=request.POST, instance=review)
+
+#         if review_form.is_valid() and review.author == request.user:
+#             review = review_form.save(commit=False)
+#             review.review = review
+#             review.approved = False
+#             review.save()
+#             messages.add_message(request, messages.SUCCESS, 'Review Updated!')
+#         else:
+#             messages.add_message(request, messages.ERROR,
+#                                  'Error updating your review!')
+
+#     return HttpResponseRedirect(reverse('edit_review', args=[review_id]))
+
 
 @login_required
 def edit_review(request, review_id):
+    review = get_object_or_404(Review, pk=review_id)
+
     if request.method == "POST":
-        queryset = Review.objects.filter(status=1)
-        review = get_object_or_404(queryset)
-        review = get_object_or_404(Review, pk=review_id)
         review_form = ReviewForm(data=request.POST, instance=review)
-
-        if review_form.is_valid() and review.author == request.user:
-            review = review_form.save(commit=False)
-            review.review = review
-            review.approved = False
-            review.save()
+        if review_form.is_valid():
+            review_form.save()
             messages.add_message(request, messages.SUCCESS, 'Review Updated!')
+            return HttpResponseRedirect(reverse('review'))
         else:
-            messages.add_message(request, messages.ERROR,
-                                 'Error updating your review!')
+            messages.add_message(request, messages.ERROR, 'Error updating your review!')
 
-    return HttpResponseRedirect(reverse('review_list'))
+    else:
+        review_form = ReviewForm(instance=review)
+
+    return render(request, 'reviews/edit_review.html', {'form': review_form, 'review': review})
+
+
 
 class ReviewDeleteView(DeleteView):
     model = Review
     template_name = 'review_list.html'
     context_object_name = 'review'
-    success_url = reverse_lazy('review_list')
+    success_url = reverse_lazy('review')
 
 def review_delete(request, review_id):
     queryset = Review.objects.filter(status=1)
@@ -82,4 +103,4 @@ def review_delete(request, review_id):
         messages.add_message(request, messages.ERROR,
                              'You can only delete your own review!')
 
-    return HttpResponseRedirect(reverse('review_list'))
+    return HttpResponseRedirect(reverse('delete_review'))
