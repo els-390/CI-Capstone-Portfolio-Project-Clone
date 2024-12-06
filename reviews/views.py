@@ -1,3 +1,5 @@
+
+from django.contrib.messages.views import SuccessMessageMixin
 from django.views.generic import ListView
 from django.urls import reverse, reverse_lazy
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
@@ -14,8 +16,14 @@ class ReviewListView(ListView):
     context_object_name = 'reviews'
     
 def review_list(request):
-    reviews = Review.objects.filter(approved=True).order_by('-created_on')
+    if request.user.is_authenticated:
+        reviews = Review.objects.filter(
+            approved=True
+        ) | Review.objects.filter(author=request.user)
+    else:
+        reviews = Review.objects.filter(approved=True)
     return render(request, 'reviews/review_list.html', {'reviews': reviews})
+
 
 class ReviewCreateView(CreateView):
     model = Review
@@ -62,17 +70,14 @@ def edit_review(request, review_id):
 
     return render(request, 'reviews/edit_review.html', {'form': review_form, 'review': review})
 
-class ReviewDeleteView(DeleteView):
+
+
+class ReviewDeleteView(SuccessMessageMixin, DeleteView):
     model = Review
-    success_url = '/reviews/'
+    template_name = 'reviews/review_confirm_delete.html'
+    success_url = reverse_lazy('review')  # Redirect to the review list page
+    success_message = "Review deleted successfully!"
 
-def review_delete(request, review_id):
-    review = get_object_or_404(Review, pk=review_id)
-
-    if review.author == request.user:
-        review.delete()
-        messages.add_message(request, messages.SUCCESS, 'Review deleted!')
-    else:
-        messages.add_message(request, messages.ERROR, 'You can only delete your own review!')
-
-        return HttpResponseRedirect(reverse('review', args=[slug]))
+@login_required
+def get_queryset(self):
+        return super().get_queryset().filter(author=self.request.user)

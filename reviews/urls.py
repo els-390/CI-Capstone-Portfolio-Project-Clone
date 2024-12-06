@@ -6,7 +6,6 @@ from .views import (
     ReviewDeleteView,
     add_review,
     edit_review,
-    review_delete
 )
 
 urlpatterns = [
@@ -15,6 +14,5 @@ urlpatterns = [
     path('<int:pk>/edit/', ReviewUpdateView.as_view(), name='review_edit'),
     path('reviews/<int:review_id>/edit/', edit_review, name='edit_review'),
     path('<int:pk>/delete/', ReviewDeleteView.as_view(), name='review_delete'),
-    path('<int:review_id>/delete/', review_delete, name='delete_review'),
 ]
 
