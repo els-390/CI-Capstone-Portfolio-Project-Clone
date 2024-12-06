@@ -12,9 +12,9 @@ class ReviewListView(ListView):
     model = Review
     template_name = 'review_list.html'
     context_object_name = 'reviews'
-
+    
 def review_list(request):
-    reviews = Review.objects.all().order_by('-created_on')
+    reviews = Review.objects.filter(approved=True).order_by('-created_on')
     return render(request, 'reviews/review_list.html', {'reviews': reviews})
 
 class ReviewCreateView(CreateView):
