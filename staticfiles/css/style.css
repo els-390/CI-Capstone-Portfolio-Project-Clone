@@ -159,3 +159,26 @@ body {
 .approval {
     color: rgb(222, 146, 168);
 }
+
+
+/* This will apply Flexbox to the container */
+.project-container {
+    display: flex;
+    flex-wrap: wrap; /* This ensures that items wrap to the next line when they exceed the container width */
+    justify-content: space-between; /* Aligns items with space between them */
+    gap: 20px; /* Adds space between each project */
+}
+
+/* Optionally, you can also control the width of each project card */
+.project-item {
+    flex: 1 1 calc(33.333% - 20px); /* Flex-grow, flex-shrink, and width calculation */
+    box-sizing: border-box;
+    margin-bottom: 20px; /* Space below each project */
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+    .project-item {
+        flex: 1 1 100%; /* Stack projects vertically on small screens */
+    }
+}
