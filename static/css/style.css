@@ -1,13 +1,8 @@
-/* General body and background styles */
+
 body {
     background-color: #F9FAFC;
 }
 
-.main-bg {
-    background-color: #F9FAFC;
-}
-
-/* Brand and text styles */
 .brand {
     font-family: Lato, sans-serif;
     font-size: 1.4rem;
@@ -23,7 +18,6 @@ body {
     font-weight: 300;
 }
 
-/* Background colors */
 .light-bg {
     background-color: #fff;
 }
@@ -32,13 +26,15 @@ body {
     background-color: #445261;
 }
 
-/* Card styles */
+.main-bg {
+    background-color: #F9FAFC;
+}
+
 .card {
     border: none;
     background-color: transparent;
 }
 
-/* Image styling */
 .image-container {
     position: relative;
 }
@@ -56,7 +52,12 @@ body {
     height: auto;
 }
 
-/* Masthead and project section styling */
+.author {
+    color: white;
+    margin: 4px;
+    text-transform: uppercase;
+}
+
 .masthead {
     margin-top: 10px;
     overflow: hidden;
@@ -91,27 +92,30 @@ body {
     z-index: 100;
 }
 
-.project-link {
+.profile-image {
+    width: 75%;
+}
+
+.post-link {
     text-decoration: none;
     color: #445261;
 }
 
-.project-link:hover,
+.post-link:hover,
 .page-link {
     color: #E84610;
 }
 
-.project-title {
+.post-title {
     margin-top: 10%;
     margin-left: 5%;
 }
 
-.project-subtitle {
+.post-subtitle {
     margin-left: 5%;
     color: lightgray;
 }
 
-/* Button styles */
 .btn-signup,
 .btn-edit {
     background-color: #188181;
@@ -124,25 +128,6 @@ body {
     color: #23BBBB;
 }
 
-.btn-like {
-    color: #E84610;
-    border: none;
-    background: transparent;
-}
-
-.btn-like:hover,
-.btn-like:active {
-    color: #E84610;
-    background: transparent;
-    border: none;
-}
-
-.btn-delete {
-    color: #fff;
-    background: #E84610;
-}
-
-/* Link styling */
 .link {
     color: #23BBBB;
     text-decoration: none;
@@ -154,103 +139,28 @@ body {
     text-decoration: underline;
 }
 
-/* Faded text */
+.btn-like {
+    color: #E84610;
+    border: none;
+    background: transparent;
+}
+
+.btn-delete {
+    color: #fff;
+    background: #E84610;
+}
+
+.btn-like:hover,
+.btn-like:active {
+    color: #E84610;
+    background: transparent;
+    border: none;
+}
+
 .faded {
     color: rgb(172, 175, 175);
 }
 
-/* Approval message styling */
 .approval {
     color: rgb(222, 146, 168);
-}
-
-/* Styling for comments section */
-.comments {
-    margin-bottom: 20px;
-    padding: 10px;
-    background-color: #f9f9f9;
-    border-radius: 5px;
-    border: 1px solid #ddd;
-}
-
-/* Fade-out effect for unapproved comments */
-.faded {
-    opacity: 0.5;
-}
-
-/* Hide unapproved comments */
-.d-none {
-    display: none;
-}
-
-/* Styling for the comment info */
-.comments .font-weight-bold {
-    font-size: 1.1em;
-}
-
-/* Styling for approval messages */
-.approval {
-    color: rgb(222, 146, 168);
-    font-size: 0.9em;
-    font-style: italic;
-}
-
-/* Styling for comment buttons */
-.btn-delete, .btn-edit {
-    margin-right: 5px;
-    margin-top: 10px;
-}
-
-/* Styling for comment form */
-#commentForm {
-    margin-top: 20px;
-}
-
-#commentForm .form-group {
-    margin-bottom: 15px;
-}
-
-#commentForm button {
-    margin-top: 10px;
-    width: 100%;
-    background-color: #007bff;
-    color: white;
-    border-radius: 5px;
-    font-size: 1.1em;
-    padding: 10px;
-}
-
-/* Comment display sections (left and right alignment) */
-.row {
-    display: flex;
-    justify-content: space-between;
-    gap: 20px;
-}
-
-.col-md-8 {
-    flex: 0 0 66.67%;
-}
-
-.col-md-4 {
-    flex: 0 0 33.33%;
-}
-
-@media (max-width: 768px) {
-    .row {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .col-md-8, .col-md-4 {
-        flex: 0 0 100%;
-    }
-}
-
-/* Modal styling */
-.modal-content {
-    border-radius: 8px;
-}
-
-.modal-header {
-    background-color: #f8f9fa;
 }
