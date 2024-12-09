@@ -17,7 +17,7 @@ class ReviewListView(ListView):
     
 def review_list(request):
     if request.user.is_authenticated:
-        eviews = Review.objects.filter(approved=True) | Review.objects.filter(author=request.user)
+        reviews = Review.objects.filter(approved=True) | Review.objects.filter(author=request.user)
     else:
         reviews = Review.objects.filter(approved=True)
     return render(request, 'reviews/review_list.html', {'reviews': reviews})

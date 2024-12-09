@@ -19,7 +19,7 @@ def about_me(request):
             contact_request.save()
             messages.add_message(
                 request, messages.SUCCESS,
-                'Contact request received! I endeavor to respond within 2 working days.'
+                'Your message has been sent successfully! I endeavor to respond within 2 working days.'
             )
             contact_form =  ContactForm()
         else:
