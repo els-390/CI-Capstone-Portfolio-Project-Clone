@@ -65,9 +65,10 @@ def project_detail(request, slug):
         "projects/project_detail.html",
         {
             "project": project,
+            "technologies": project.technologies.split(','),  # Split if comma-separated
             "comments": comments,
             "comment_count": comment_count,
-            "comment_form": comment_form
+            "comment_form": comment_form,
         },
     )
 
