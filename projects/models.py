@@ -19,8 +19,8 @@ class Project(models.Model):
     featured_image = CloudinaryField('image', default='placeholder')
     content = models.TextField()
     technologies = models.TextField('Technologies', default='placeholder')
-    repository = models.URLField('GitHub Link', default='https://default.com')
-    deployed_site = models.URLField('Deployed Link', default='https://default.com')
+    repository = models.URLField('GitHub URL', default='https://default.com')
+    deployed_site = models.URLField('Deployed URL', default='https://default.com')
     created_on = models.DateTimeField(auto_now_add=True)
     status = models.IntegerField(choices=STATUS, default=0)
     excerpt = models.TextField(blank=True)
@@ -31,10 +31,6 @@ class Project(models.Model):
 
     def __str__(self):
         return f"{self.title} | written by {self.author}"
-    
-    def get_technlogies_list(self):
-        """Split the technologies field into a list."""
-        return [tech.strip() for tech in self.technologies.split(',')]
     
 
 class Comment(models.Model):
