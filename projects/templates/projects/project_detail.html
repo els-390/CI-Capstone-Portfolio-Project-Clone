@@ -35,13 +35,11 @@
                         <li>{{ technology | striptags }}</li>
                         {% endfor %}
                     </ul>
-
                     <h3>Links:</h3>
                     <p>
-                        <a href="{{ project.repository }}" target="_blank">GitHub Repository</a><br>
-                        <a href="{{ project.deployed_site }}" target="_blank">Live Project</a>
+                        <a href="{{ project.repository }}" target="_blank" class="btn btn-github" role="button">GitHub</a><br>
+                        <a href="{{ project.deployed_site }}" target="_blank" class="btn btn-deployed" role="button">Deployed Project</a>
                     </p>
-
                     <h3>Comments:</h3>
                     <div>
                         {% for comment in comments %}

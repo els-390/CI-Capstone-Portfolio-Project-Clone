@@ -2,7 +2,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Bungee+Shade&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
 body {
-    background-color:#BF9175;
+    background-color: #BF9175;
+    color: #3D2A48;
+    font-family: Roboto, sans-serif;
+    font-size: 12;
+}
+
+.alert-style {
+    font-family: Merriweather, sans-serif;
+    color: #C7384A;
 }
 
 .brand {
@@ -44,7 +52,7 @@ body {
 
 .navbar {
     background-color: #F7F2F2;
-    color: #3D2A48;  
+    color: #3D2A48;
 }
 
 .navbar-subtext {
@@ -58,21 +66,18 @@ body {
 
 
 .navbar .nav-link.active {
-    color:#F7F2F2;
-    background-color:#C7384A; /* Color for hover and active state */
+    color: #F7F2F2;
+    background-color: #C7384A;
+    /* Color for hover and active state */
     text-decoration: underline;
 }
 
 .navbar .nav-link:hover {
     background-color: #C7384A;
-    color:#F7F2F2 /* Color for hover and active state */
+    color: #F7F2F2
+        /* Color for hover and active state */
 }
 
-
-.navbar .nav-link:hover, 
-.navbar .nav-link.active {
-
-}
 /* Change the font color for the navbar brand */
 .navbar .navbar-brand {
     font-family: Merriweather, sans-serif;
@@ -85,7 +90,8 @@ body {
 
 /* Change the font color for the navbar text (right-aligned text) */
 .navbar .navbar-text {
-    color:#F7F2F2 /* Muted text color */
+    color: #F7F2F2
+        /* Muted text color */
 }
 
 .image-flash {
@@ -117,17 +123,19 @@ body {
 }
 
 .masthead-text {
-    background-color:#959FAF;
-    color:#3D2A48;
+    background-color: #959FAF;
+    color: #3D2A48;
     position: relative;
-    border-top-left-radius: 15px; /* Adjust the radius value */
+    border-top-left-radius: 15px;
+    /* Adjust the radius value */
     border-bottom-left-radius: 15px;
 }
 
 .masthead-image {
     position: relative;
     overflow: hidden;
-    border-top-right-radius: 15px; /* Adjust the radius value */
+    border-top-right-radius: 15px;
+    /* Adjust the radius value */
     border-bottom-right-radius: 1px;
 }
 
@@ -150,9 +158,23 @@ body {
     color: #8B8A95;
 }
 
-.project-link:hover,
-.page-link {
-    color: #3D2A48;
+.project-link:hover {
+    background-color: #C7384A;
+    color: #F7F2F2;
+}
+
+.page-btns {
+    background-color: #C7384A;
+    color: #F7F2F2;
+    font-size: 20px;
+    padding: 5px;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+.page-btns:hover {
+    background-color:#F7F2F2;
+    color:#C7384A;
 }
 
 .project-title {
@@ -161,8 +183,23 @@ body {
 }
 
 .project-subtitle {
-    margin-left: 5%;
-    color: #959FAF;
+    margin-left: 10%;
+    text-transform: capitalize;
+}
+
+.card-title {
+    color: #3D2A48;
+    font-weight: 500;
+}
+
+.card-title:hover {
+    color: #C7384A;
+    font-weight: 500;
+}
+
+.card-text {
+    color: #3D2A48;
+    font-weight: 400;
 }
 
 .btn-signup,
@@ -206,6 +243,47 @@ body {
     border: none;
 }
 
+.btn-github {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 5px;
+    font-size: 16px;
+    font-weight: 400;
+    background-color:#6e5494;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-github:hover {
+    background-color: #F7F2F2;
+    color: #6e5494;
+    border: 2px solid #6e5494;
+}
+
+.btn-deployed {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 5px;
+    font-size: 16px;
+    font-weight: 400;
+    background-color:#C7384A;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-deployed:hover {
+    background-color: #F7F2F2;
+    color: #C7384A;
+    border: 2px solid #C7384A;
+}
+
+
 .faded {
     color: #6c8e51;
 }
@@ -216,7 +294,7 @@ body {
 
 footer {
     background-color: #F7F2F2;
-    color:#3D2A48;
+    color: #3D2A48;
     font-family: Roboto, sans-serif;
     font-size: 1rem;
     padding: 0 auto;
