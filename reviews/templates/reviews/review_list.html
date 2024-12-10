@@ -7,13 +7,12 @@
     <div class="row justify-content-center">
         <div class="col-12 col-md-6 my-5">
             <h1>Reviews</h1>
-            <a href="{% url 'add_review' %}" class="btn btn-primary">Add Review</a>
+            <a href="{% url 'add_review' %}" class="btn btn-add-review">Add Review</a>
             <hr>
             <div>
                 {% for review in reviews %}
                 <div>
-                    <p
-                        class="approval {% if not review.approved and review.author == request.user %} faded {% elif not review.approved %} d-none{% endif %}">
+                    <p class="approval {% if not review.approved and review.author == request.user %} faded {% elif not review.approved %} d-none{% endif %}">
                         This review is awaiting approval
                     </p>
                     <h3>{{ review.review_title }}</h3>
@@ -21,8 +20,8 @@
                     <p><strong>Rating:</strong> {{ review.rating }}/5</p>
                     <p>{{ review.content }}</p>
                     {% if user.is_authenticated and review.author == user %}
-                    <a href="{% url 'edit_review' review.id %}" class="btn btn-primary">Edit</a>
-                    <a href="{% url 'review_delete' review.id %}" class="btn btn-danger">
+                    <a href="{% url 'edit_review' review.id %}" class="btn btn-edit-review">Edit</a>
+                    <a href="{% url 'review_delete' review.id %}" class="btn btn-delete-review">
                         Delete
                     </a>
                     {% endif %}
