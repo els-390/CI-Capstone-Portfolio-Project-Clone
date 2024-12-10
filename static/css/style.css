@@ -24,6 +24,15 @@ body {
     color: #C7384A;
 }
 
+
+.login-status {
+    color: #C7384A;
+    font-weight: 400;
+    padding: 5px;
+    font-size: 20px;
+    font-style: italic;
+}
+
 .thin {
     font-weight: 300;
 }
@@ -57,6 +66,7 @@ body {
 
 .navbar-subtext {
     color: #3D2A48;
+    text-decoration: underline;
 
 }
 
@@ -64,6 +74,9 @@ body {
     color: #3D2A48;
 }
 
+.navbar-collapse .nav-link {
+    padding: 2px 5px; /* Adjust values as needed */
+}
 
 .navbar .nav-link.active {
     color: #F7F2F2;
@@ -83,15 +96,23 @@ body {
     font-family: Merriweather, sans-serif;
     font-weight: bold;
     font-family: Bungee Shade, sans-serif;
-    font-size: 1.6rem;
+    font-size: 1.4rem;
     font-weight: 700;
     color: #3D2A48;
 }
 
-/* Change the font color for the navbar text (right-aligned text) */
-.navbar .navbar-text {
-    color: #F7F2F2
-        /* Muted text color */
+.navbar-toggler {
+    background-color: #C7384A; /* Toggler button background color */
+    border: none; /* Remove border if needed */
+    font-size: 18px;
+}
+
+/* Change the color of the toggler icon */
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='white' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E"); /* White bars icon */
+    width: 30px; /* Default size for larger screens */
+    height: 30px;
+    padding: 2px;
 }
 
 .image-flash {
@@ -306,3 +327,9 @@ footer {
     font-family: Roboto, sans-serif;
     font-size: 1.1rem;
 }
+/* Media query for mobile devices
+@media (max-width: 768px) {
+    .navbar-toggler-icon {
+        width: 20px; /* Smaller size for mobile 
+        height: 20px;
+    } */
