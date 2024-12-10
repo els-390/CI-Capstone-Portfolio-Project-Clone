@@ -2,7 +2,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Bungee+Shade&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
 body {
-    background-color:#BF9175;
+    background-color: #BF9175;
+    color: #3D2A48;
+    font-family: Roboto, sans-serif;
+    font-size: 12;
+}
+
+.alert-style {
+    font-family: Merriweather, sans-serif;
+    color: #C7384A;
 }
 
 .brand {
@@ -14,6 +22,15 @@ body {
 
 .brand-surname {
     color: #C7384A;
+}
+
+
+.login-status {
+    color: #C7384A;
+    font-weight: 400;
+    padding: 5px;
+    font-size: 20px;
+    font-style: italic;
 }
 
 .thin {
@@ -42,53 +59,68 @@ body {
 }
 
 
-.navbar .navbar-text {
+.navbar {
     background-color: #F7F2F2;
-    color: #3D2A48;  
+    color: #3D2A48;
+}
+
+.navbar-subtext {
+    color: #3D2A48;
+    text-decoration: underline;
+
 }
 
 .nav-link {
     color: #3D2A48;
 }
 
+.navbar-collapse .nav-link {
+    padding: 2px 5px; /* Adjust values as needed */
+}
 
 .navbar .nav-link.active {
-    color:#F7F2F2;
-    background-color:#C7384A; /* Color for hover and active state */
+    color: #F7F2F2;
+    background-color: #C7384A;
+    /* Color for hover and active state */
     text-decoration: underline;
 }
 
 .navbar .nav-link:hover {
     background-color: #C7384A;
-    color:#F7F2F2 /* Color for hover and active state */
+    color: #F7F2F2
+        /* Color for hover and active state */
 }
 
-
-.navbar .nav-link:hover, 
-.navbar .nav-link.active {
-
-}
 /* Change the font color for the navbar brand */
 .navbar .navbar-brand {
     font-family: Merriweather, sans-serif;
     font-weight: bold;
     font-family: Bungee Shade, sans-serif;
-    font-size: 1.6rem;
+    font-size: 1.4rem;
     font-weight: 700;
     color: #3D2A48;
 }
 
-/* Change the font color for the navbar text (right-aligned text) */
-.navbar .navbar-text {
-    color:#F7F2F2 /* Muted text color */
+.navbar-toggler {
+    background-color: #C7384A; /* Toggler button background color */
+    border: none; /* Remove border if needed */
+    font-size: 18px;
+}
+
+/* Change the color of the toggler icon */
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='white' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E"); /* White bars icon */
+    width: 30px; /* Default size for larger screens */
+    height: 30px;
+    padding: 2px;
 }
 
 .image-flash {
-    position: absolute;
     bottom: 5%;
     min-width: 30%;
-    left: -2px;
+    text-align: center;
     background-color: #C7384A;
+    border-radius: 5px;
 }
 
 .scale {
@@ -113,13 +145,19 @@ body {
 
 .masthead-text {
     background-color: #959FAF;
-    color: #D8D8D8;
+    color: #3D2A48;
     position: relative;
+    border-top-left-radius: 15px;
+    /* Adjust the radius value */
+    border-bottom-left-radius: 15px;
 }
 
 .masthead-image {
     position: relative;
     overflow: hidden;
+    border-top-right-radius: 15px;
+    /* Adjust the radius value */
+    border-bottom-right-radius: 1px;
 }
 
 .masthead-image:after {
@@ -141,19 +179,48 @@ body {
     color: #8B8A95;
 }
 
-.project-link:hover,
-.page-link {
-    color: #3D2A48;
+.project-link:hover {
+    background-color: #C7384A;
+    color: #F7F2F2;
+}
+
+.page-btns {
+    background-color: #C7384A;
+    color: #F7F2F2;
+    font-size: 20px;
+    padding: 5px;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+.page-btns:hover {
+    background-color:#F7F2F2;
+    color:#C7384A;
 }
 
 .project-title {
-    margin-top: 10%;
-    margin-left: 5%;
+    margin-top: 15%;
+    margin-left: 10%;
 }
 
 .project-subtitle {
-    margin-left: 5%;
-    color: #959FAF;
+    margin-left: 10%;
+    text-transform: capitalize;
+}
+
+.card-title {
+    color: #3D2A48;
+    font-weight: 500;
+}
+
+.card-title:hover {
+    color: #C7384A;
+    font-weight: 500;
+}
+
+.card-text {
+    color: #3D2A48;
+    font-weight: 400;
 }
 
 .btn-signup,
@@ -197,6 +264,47 @@ body {
     border: none;
 }
 
+.btn-github {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 5px;
+    font-size: 16px;
+    font-weight: 400;
+    background-color:#6e5494;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-github:hover {
+    background-color: #F7F2F2;
+    color: #6e5494;
+    border: 2px solid #6e5494;
+}
+
+.btn-deployed {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 5px;
+    font-size: 16px;
+    font-weight: 400;
+    background-color:#C7384A;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-deployed:hover {
+    background-color: #F7F2F2;
+    color: #C7384A;
+    border: 2px solid #C7384A;
+}
+
+
 .faded {
     color: #6c8e51;
 }
@@ -204,3 +312,24 @@ body {
 .approval {
     color: #f44336;
 }
+
+footer {
+    background-color: #F7F2F2;
+    color: #3D2A48;
+    font-family: Roboto, sans-serif;
+    font-size: 1rem;
+    padding: 0 auto;
+    margin: mx auto;
+}
+
+.social {
+    color: #3D2A48;
+    font-family: Roboto, sans-serif;
+    font-size: 1.1rem;
+}
+/* Media query for mobile devices
+@media (max-width: 768px) {
+    .navbar-toggler-icon {
+        width: 20px; /* Smaller size for mobile 
+        height: 20px;
+    } */
