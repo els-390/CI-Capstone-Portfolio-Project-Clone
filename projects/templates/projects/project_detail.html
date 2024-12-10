@@ -54,13 +54,13 @@
                                     {% if previous_project %}
                                     <li class="page-item">
                                         <a href="{% url 'project_detail' previous_project.slug %}"
-                                            class="btn btn-primary page-link">Previous Project</a>
+                                            class="btn btn-previous page-link">Previous Project</a>
                                     </li>
                                     {% endif %}
                                     {% if next_project %}
                                     <li class="page-item">
                                         <a href="{% url 'project_detail' next_project.slug %}"
-                                            class="btn btn-primary page-link">Next Project</a>
+                                            class="btn btn-next page-link">Next Project</a>
                                     </li>
                                     {% endif %}
                                 </ul>

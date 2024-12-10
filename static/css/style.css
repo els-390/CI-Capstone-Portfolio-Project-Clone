@@ -156,7 +156,6 @@ body {
     position: relative;
     border-top-left-radius: 15px;
     /* Adjust the radius value */
-    border-bottom-left-radius: 15px;
 }
 
 .masthead-image {
@@ -164,7 +163,6 @@ body {
     overflow: hidden;
     border-top-right-radius: 15px;
     /* Adjust the radius value */
-    border-bottom-right-radius: 1px;
 }
 
 .masthead-image:after {
@@ -363,6 +361,31 @@ body {
     /* Ensures the border only wraps around the content */
 }
 
+.btn-next, .btn-previous {
+    background-color: #C7384A;
+    color: #fff;
+    border: 1px solid #fff;
+    /* Adds a border around the text */
+    border-radius: 5px;
+    /* Optional: Adds rounded corners */
+    padding: 10px;
+    /* Adds spacing inside the border */
+    width: fit-content;
+    /* Ensures the border only wraps around the content */
+}
+
+.btn-next:hover, .btn-previous:hover {
+    background-color: #fff;
+    color: #C7384A;
+    border: 1px solid #C7384A;
+    /* Adds a border around the text */
+    border-radius: 5px;
+    /* Optional: Adds rounded corners */
+    padding: 10px;
+    /* Adds spacing inside the border */
+    width: fit-content;
+    /* Ensures the border only wraps around the content */
+}
 
 .link {
     color: #3D2A48;
@@ -419,7 +442,7 @@ body {
     margin: 5px;
     font-size: 16px;
     font-weight: 400;
-    background-color: #C7384A;
+    background-color: #6c8e51;
     color: #fff;
     text-align: center;
     text-decoration: none;
@@ -429,8 +452,8 @@ body {
 
 .btn-deployed:hover {
     background-color: #F7F2F2;
-    color: #C7384A;
-    border: 2px solid #C7384A;
+    color:#6c8e51;
+    border: 2px solid #6c8e51;
 }
 
 
