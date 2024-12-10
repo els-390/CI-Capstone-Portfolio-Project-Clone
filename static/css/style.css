@@ -10,7 +10,10 @@ body {
 
 .alert-style {
     font-family: Merriweather, sans-serif;
-    color: #C7384A;
+    font-weight: 400;
+    margin-top: 10px;
+    color: #fff;
+    background-color: #C7384A;
 }
 
 .brand {
@@ -231,18 +234,59 @@ body {
 .btn-edit {
     background-color: #C7384A;
     color: #fff;
+    border: 1px solid #C7384A;
+    /* Adds a border around the text */
+    border-radius: 5px;
+    /* Optional: Adds rounded corners */
+    padding: 10px;
+    /* Adds spacing inside the border */
+    width: fit-content;
+    /* Ensures the border only wraps around the content */
 }
 
 .btn-signup:hover,
 .btn-signup:active {
     background-color: #fff;
-    color: #3D2A48;
+    color: #C7384A;
+    border: 1px solid #C7384A;
+    /* Adds a border around the text */
+    border-radius: 5px;
+    /* Optional: Adds rounded corners */
+    padding: 10px;
+    /* Adds spacing inside the border */
+    width: fit-content;
+    /* Ensures the border only wraps around the content */
+}
+
+.btn-contact-submit {
+    background-color: #C7384A;
+    color: #fff;
+    border: 1px solid #C7384A;
+    /* Adds a border around the text */
+    border-radius: 5px;
+    /* Optional: Adds rounded corners */
+    padding: 10px;
+    /* Adds spacing inside the border */
+    width: fit-content;
+    /* Ensures the border only wraps around the content */
+}
+
+.btn-contact-submit:hover {
+    background-color: #fff;
+    color: #C7384A;
+    border: 1px solid #C7384A;
+    /* Adds a border around the text */
+    border-radius: 5px;
+    /* Optional: Adds rounded corners */
+    padding: 10px;
+    /* Adds spacing inside the border */
+    width: fit-content;
+    /* Ensures the border only wraps around the content */
 }
 
 .btn-add-review {
     background-color: #62aa6c;
     color: #fff;
-    font-weight: 450;
     border: 1px solid #fff;
     /* Adds a border around the text */
     border-radius: 5px;
@@ -255,8 +299,7 @@ body {
 
 .btn-add-review:hover {
     background-color: #fff;
-    color:  #62aa6c;
-    font-weight: 450;
+    color: #62aa6c;
     border: 1px solid #62aa6c;
     /* Adds a border around the text */
     border-radius: 5px;
@@ -283,7 +326,8 @@ body {
 .btn-edit-review:hover {
     background-color: #fff;
     color: #df9a34;
-    border: 1px solid #df9a34;;
+    border: 1px solid #df9a34;
+    ;
     /* Adds a border around the text */
     border-radius: 5px;
     /* Optional: Adds rounded corners */
@@ -412,4 +456,3 @@ footer {
     font-family: Roboto, sans-serif;
     font-size: 1.1rem;
 }
-
