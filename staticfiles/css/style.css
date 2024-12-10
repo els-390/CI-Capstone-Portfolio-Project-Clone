@@ -52,8 +52,66 @@ body {
 }
 
 .card {
-    border: none;
-    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    /* Ensure the card body stacks vertically */
+    justify-content: space-between;
+    /* Distribute space evenly */
+    height: 100%;
+    /* Make all cards equal height */
+    background-color: #F7F2F2;
+        /* Optional: Background color */
+        border: 1px solid #ddd;
+    /* Optional: Border for styling */
+}
+
+.card-body {
+    flex-grow: 1;
+    /* Make the card body expand to fill available space */
+    display: flex;
+    flex-direction: column;
+    /* Keep card content stacked */
+    justify-content: space-between;
+    /* Evenly space content */
+}
+
+.card-img-top {
+    max-height: 250px;
+    /* Consistent image height */
+    object-fit: cover;
+    /* Crop image to fit container */
+    width: 100%;
+    /* Ensure image spans the card width */
+}
+
+.image-container {
+    position: relative;
+    overflow: hidden;
+    height: 325px;
+    /* Consistent height for all images */
+}
+
+.image-flash {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Optional: Flash effect */
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.project-link {
+    text-decoration: none;
+    /* Remove link underline */
+    color: inherit;
+    /* Inherit text color */
+}
+
+.project-link:hover h2 {
+    text-decoration: underline;
+    /* Add underline on hover */
 }
 
 .image-container {
@@ -64,6 +122,7 @@ body {
 .navbar {
     background-color: #F7F2F2;
     color: #3D2A48;
+    font-size: 1.2rem;
 }
 
 .navbar-subtext {
@@ -181,11 +240,6 @@ body {
 .project-link {
     text-decoration: none;
     color: #8B8A95;
-}
-
-.project-link:hover {
-    background-color: #C7384A;
-    color: #F7F2F2;
 }
 
 .page-btns {
@@ -360,7 +414,8 @@ body {
     /* Ensures the border only wraps around the content */
 }
 
-.btn-next, .btn-previous {
+.btn-next,
+.btn-previous {
     background-color: #C7384A;
     color: #fff;
     border: 1px solid #fff;
@@ -373,7 +428,8 @@ body {
     /* Ensures the border only wraps around the content */
 }
 
-.btn-next:hover, .btn-previous:hover {
+.btn-next:hover,
+.btn-previous:hover {
     background-color: #fff;
     color: #C7384A;
     border: 1px solid #C7384A;
@@ -451,7 +507,7 @@ body {
 
 .btn-deployed:hover {
     background-color: #F7F2F2;
-    color:#6c8e51;
+    color: #6c8e51;
     border: 2px solid #6c8e51;
 }
 
@@ -476,5 +532,11 @@ footer {
 .social {
     color: #3D2A48;
     font-family: Roboto, sans-serif;
-    font-size: 1.1rem;
+    font-size: 1.0rem;
+}
+
+.social-icons {
+    color: #3D2A48;
+    font-family: Roboto, sans-serif;
+    font-size: 1.0rem;
 }
