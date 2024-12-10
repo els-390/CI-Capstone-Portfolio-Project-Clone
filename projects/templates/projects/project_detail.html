@@ -13,118 +13,141 @@
                 <p class="project-subtitle">{{ project.author }} | {{ project.created_on }}</p>
             </div>
             <div class="d-none d-md-block col-md-6 masthead-image">
-                <img src="{% static 'images/default.jpg' %}" class="scale" alt="placeholder">
+                <img src="{% static 'images/placeholder.jpg' %}" class="scale" alt="placeholder">
             </div>
-        </div>
-    </div>
-</div>
-<div class="container">
-    <div class="row">
-        <div class="col card mb-4  mt-3 left  top">
-            <div class="card-body">
-                <!-- The project.content goes inside the card-text. -->
-                <!-- Use the | safe filter inside the template tags -->
-                <article class="card-text">
-                    {{ project.content | safe }}
 
-                    <h3>Technologies Used:</h3>
-                    <ul>
-                        {% for technology in technologies %}
-                        <li>{{ technology | striptags }}</li>
-                        {% endfor %}
-                    </ul>
-                    <h3>Links:</h3>
-                    <p>
-                        <a href="{{ project.repository }}" target="_blank" class="btn btn-github" role="button">GitHub</a><br>
-                        <a href="{{ project.deployed_site }}" target="_blank" class="btn btn-deployed" role="button">Deployed Project</a>
-                    </p>
-                    <h3>Comments:</h3>
-                    <div>
-                        {% for comment in comments %}
-                        <p>{{ comment.body }} - by {{ comment.author }}</p>
-                        {% endfor %}
-                    </div>
-                </article>
+            <!-- <div class="d-none d-md-block col-md-6 masthead-image">
+                {% if project.featured_image.url %}
+                <img src="{{ project.featured_image.url }}" class="scale" alt="{{ project.title }}">
+                {% else %}
+                <img src="{% static 'images/default.jpg' %}" class="scale" alt="placeholder">
+                {% endif %}
+            </div> -->
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col card mb-4 mt-3 left top">
+                <div class="card-body">
+                    <!-- The project.content goes inside the card-text. -->
+                    <article class="card-text">
+                        {{ project.content | safe }}
+
+                        <h3>Technologies Used:</h3>
+                        <ul>
+                            {% for technology in technologies %}
+                            <li>{{ technology | striptags }}</li>
+                            {% endfor %}
+                        </ul>
+
+                        <h3>Links:</h3>
+                        <p>
+                            <a href="{{ project.repository }}" target="_blank" class="btn btn-github"
+                                role="button">GitHub</a><br>
+                            <a href="{{ project.deployed_site }}" target="_blank" class="btn btn-deployed"
+                                role="button">Deployed Project</a>
+                        </p>
+
+                        <div class="project-navigation">
+                            <nav aria-label="Page navigation">
+                                <ul class="pagination justify-content-center">
+                                    {% if previous_project %}
+                                    <li class="page-item">
+                                        <a href="{% url 'project_detail' previous_project.slug %}"
+                                            class="btn btn-primary page-link">Previous Project</a>
+                                    </li>
+                                    {% endif %}
+                                    {% if next_project %}
+                                    <li class="page-item">
+                                        <a href="{% url 'project_detail' next_project.slug %}"
+                                            class="btn btn-primary page-link">Next Project</a>
+                                    </li>
+                                    {% endif %}
+                                </ul>
+                            </nav>
+                    </article>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-12">
-            <strong class="text-secondary">
-                <i class="far fa-comments"></i> {{ comment_count }}
-            </strong>
+
+        <div class="row">
+            <div class="col-12">
+                <strong class="text-secondary">
+                    <i class="far fa-comments"></i> {{ comment_count }}
+                </strong>
+            </div>
+            <div class="col-12">
+                <hr>
+            </div>
         </div>
-        <div class="col-12">
-            <hr>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-8 card mb-4  mt-3 ">
-            <h3>Comments:</h3>
-            <div class="card-body">
-                <!-- We want a for loop inside the empty control tags to iterate through each comment in comments -->
-                {% for comment in comments %}
-                <div
-                    class="p-2 comments{% if not comment.approved and comment.author == user %} faded{% elif not comment.approved %} d-none{% endif %}">
-                    <p class="font-weight-bold">
-                        {{ comment.author }}
-                        <span class="font-weight-normal">
-                            {{ comment.created_on }}
-                        </span> wrote:
-                    </p>
-                    <div id="comment{{ comment.id }}">
-                        {{ comment.body | linebreaks }}
+
+        <div class="row">
+            <div class="col-md-8 card mb-4 mt-3">
+                <h3>Comments:</h3>
+                <div class="card-body">
+                    {% for comment in comments %}
+                    <div
+                        class="p-2 comments{% if not comment.approved and comment.author == user %} faded{% elif not comment.approved %} d-none{% endif %}">
+                        <p class="font-weight-bold">
+                            {{ comment.author }}
+                            <span class="font-weight-normal">
+                                {{ comment.created_on }}
+                            </span> wrote:
+                        </p>
+                        <div id="comment{{ comment.id }}">
+                            {{ comment.body | linebreaks }}
+                        </div>
+                        {% if not comment.approved and comment.author == user %}
+                        <p class="approval">This comment is awaiting approval</p>
+                        {% endif %}
+                        {% if user.is_authenticated and comment.author == user %}
+                        <button class="btn btn-delete" data-comment_id="{{ comment.id }}">Delete</button>
+                        <button class="btn btn-edit" data-comment_id="{{ comment.id }}">Edit</button>
+                        {% endif %}
                     </div>
-                    {% if not comment.approved and comment.author == user %}
-                    <p class="approval">This comment is awaiting approval</p>
-                    {% endif %}
-                    {% if user.is_authenticated and comment.author == user %}
-                    <button class="btn btn-delete" data-comment_id="{{ comment.id }}">Delete</button>
-                    <button class="btn btn-edit" data-comment_id="{{ comment.id }}">Edit</button>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <div class="col-md-4 card mb-4 mt-3">
+                <div class="card-body">
+                    {% if user.is_authenticated %}
+                    <h3>Leave a comment:</h3>
+                    <p>Posting as: {{ user.username }}</p>
+                    <form id="commentForm" method="POST" style="margin-top: 1.3em;">
+                        {% csrf_token %}
+                        {{ comment_form | crispy }}
+                        <button id="submitButton" type="submit" class="btn btn-signup btn-lg">Submit</button>
+                    </form>
+                    {% else %}
+                    <p>Log in to leave a comment</p>
                     {% endif %}
                 </div>
-                <!-- Our for loop ends here -->
-                {% endfor %}
-            </div>
-        </div>
-        <div class="col-md-4 card mb-4  mt-3 ">
-            <div class="card-body">
-                {% if user.is_authenticated %}
-                <h3>Leave a comment:</h3>
-                <p>Posting as: {{ user.username }}</p>
-                <form id="commentForm" method="POST" style="margin-top: 1.3em;">
-                    {% csrf_token %}
-                    {{ comment_form | crispy }}
-                    <button id="submitButton" type="submit" class="btn btn-signup btn-lg">Submit</button>
-                </form>
-                {% else %}
-                <p>Log in to leave a comment</p>
-                {% endif %}
             </div>
         </div>
     </div>
-</div>
-<!-- Delete confirmation modal -->
-<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="deleteModalLabel">Delete comment?</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                Are you sure you want to delete your comment? This action cannot be undone.
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <a id="deleteConfirm" href="#" class="btn btn-danger">Delete</a>
+
+    <!-- Delete confirmation modal -->
+    <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="deleteModalLabel">Delete comment?</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Are you sure you want to delete your comment? This action cannot be undone.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <a id="deleteConfirm" href="#" class="btn btn-danger">Delete</a>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
-{% endblock content %}
+    {% endblock content %}
 
-{% block extras %}
-<script src="{% static 'js/comments.js' %}"></script>
-{% endblock %}
+    {% block extras %}
+    <script src="{% static 'js/comments.js' %}"></script>
+    {% endblock %}

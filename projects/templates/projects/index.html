@@ -11,12 +11,12 @@
         <div class="col-12 mt-3 left">
             <div class="row">
                 {% for project in project_list %}
-                <div class="col-md-4">
-                    <div class="card mb-4">
+                <div class="col-12 col-md-6 col-lg-4 mb-4"> <!-- Adjusted Bootstrap classes for responsiveness -->
+                    <div class="card">
                         <div class="card-body">
                             <div class="image-container">
                                 {% if "placeholder" in project.featured_image.url %}
-                                <img class="card-img-top" src="{% static 'images/default.jpg' %}"
+                                <img class="card-img-top" src="{% static 'images/placeholder.jpg' %}"
                                     alt="placeholder image">
                                 {% else %}
                                 <img class="card-img-top" src=" {{ project.featured_image.url }}" alt="{{ project.title }}">
@@ -35,10 +35,6 @@
                         </div>
                     </div>
                 </div>
-                {% if forloop.counter|divisibleby:3 %}
-            </div>
-            <div class="row">
-                {% endif %}
                 {% endfor %}
             </div>
         </div>
@@ -47,12 +43,12 @@
     <nav aria-label="Page navigation">
         <ul class="pagination justify-content-center">
             {% if page_obj.has_previous %}
-    <li><a href="?page={{ page_obj.previous_page_number }}" class="page-btns">&laquo; BACK </a></li>
-    {% endif %}
-    {% if page_obj.has_next %}
-    <li><a href="?page={{ page_obj.next_page_number }}" class="page-btns"> NEXT &raquo;</a></li>
-    {% endif %}
-    </ul>
+            <li><a href="?page={{ page_obj.previous_page_number }}" class="page-btns">&laquo; BACK </a></li>
+            {% endif %}
+            {% if page_obj.has_next %}
+            <li><a href="?page={{ page_obj.next_page_number }}" class="page-btns"> NEXT &raquo;</a></li>
+            {% endif %}
+        </ul>
     </nav>
     {% endif %}
 </div>
