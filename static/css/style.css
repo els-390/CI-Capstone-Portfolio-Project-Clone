@@ -144,7 +144,6 @@ body {
     overflow: hidden;
     position: relative;
     display: inline-block;
-    height: 33vh;
     width: 100%;
 }
 
@@ -166,7 +165,7 @@ body {
 }
 
 .masthead-image:after {
-    content: "";
+    /* content: ""; */
     position: absolute;
     top: 0;
     right: 90%;
@@ -414,9 +413,3 @@ footer {
     font-size: 1.1rem;
 }
 
-/* Media query for mobile devices
-@media (max-width: 768px) {
-    .navbar-toggler-icon {
-        width: 20px; /* Smaller size for mobile 
-        height: 20px;
-    } */

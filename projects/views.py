@@ -43,6 +43,8 @@ def project_detail(request, slug):
     """
     queryset = Project.objects.filter(status=1)
     project = get_object_or_404(queryset, slug=slug)
+    next_project = Project.objects.filter(created_on__gt=project.created_on).last()
+    previous_project = Project.objects.filter(created_on__lt=project.created_on).first()
     comments = project.comments.all().order_by("-created_on")
     comment_count = project.comments.filter(approved=True).count()
     if request.method == "POST":
@@ -66,6 +68,8 @@ def project_detail(request, slug):
         {
             "project": project,
             "technologies": project.technologies.split(','),  # Split if comma-separated
+            "next_project": previous_project,
+            "previous_project": next_project,
             "comments": comments,
             "comment_count": comment_count,
             "comment_form": comment_form,
