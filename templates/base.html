@@ -103,9 +103,9 @@
     <main class="flex-shrink-0 main-bg">
         <div class="login-status">
             {% if user.is_authenticated %}
-            <p class="text-center m-3">You are logged in as {{ user }}</p>
+            <p class="text-center m-2">You are logged in as {{ user }}</p>
             {% else %}
-            <p class="text-center m-3">You are not logged in</p>
+            <p class="text-center m-2">You are not logged in</p>
             {% endif %}
         </div>
         {% block content %}

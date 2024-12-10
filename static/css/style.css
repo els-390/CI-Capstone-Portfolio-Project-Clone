@@ -2,7 +2,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Bungee+Shade&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
 body {
-    background-color: #BF9175;
     color: #3D2A48;
     font-family: Roboto, sans-serif;
     font-size: 12;
@@ -10,7 +9,10 @@ body {
 
 .alert-style {
     font-family: Merriweather, sans-serif;
-    color: #C7384A;
+    font-weight: 400;
+    margin-top: 10px;
+    color: #fff;
+    background-color: #C7384A;
 }
 
 .brand {
@@ -153,7 +155,6 @@ body {
     position: relative;
     border-top-left-radius: 15px;
     /* Adjust the radius value */
-    border-bottom-left-radius: 15px;
 }
 
 .masthead-image {
@@ -161,7 +162,6 @@ body {
     overflow: hidden;
     border-top-right-radius: 15px;
     /* Adjust the radius value */
-    border-bottom-right-radius: 1px;
 }
 
 .masthead-image:after {
@@ -231,18 +231,59 @@ body {
 .btn-edit {
     background-color: #C7384A;
     color: #fff;
+    border: 1px solid #C7384A;
+    /* Adds a border around the text */
+    border-radius: 5px;
+    /* Optional: Adds rounded corners */
+    padding: 10px;
+    /* Adds spacing inside the border */
+    width: fit-content;
+    /* Ensures the border only wraps around the content */
 }
 
 .btn-signup:hover,
 .btn-signup:active {
     background-color: #fff;
-    color: #3D2A48;
+    color: #C7384A;
+    border: 1px solid #C7384A;
+    /* Adds a border around the text */
+    border-radius: 5px;
+    /* Optional: Adds rounded corners */
+    padding: 10px;
+    /* Adds spacing inside the border */
+    width: fit-content;
+    /* Ensures the border only wraps around the content */
+}
+
+.btn-contact-submit {
+    background-color: #C7384A;
+    color: #fff;
+    border: 1px solid #C7384A;
+    /* Adds a border around the text */
+    border-radius: 5px;
+    /* Optional: Adds rounded corners */
+    padding: 10px;
+    /* Adds spacing inside the border */
+    width: fit-content;
+    /* Ensures the border only wraps around the content */
+}
+
+.btn-contact-submit:hover {
+    background-color: #fff;
+    color: #C7384A;
+    border: 1px solid #C7384A;
+    /* Adds a border around the text */
+    border-radius: 5px;
+    /* Optional: Adds rounded corners */
+    padding: 10px;
+    /* Adds spacing inside the border */
+    width: fit-content;
+    /* Ensures the border only wraps around the content */
 }
 
 .btn-add-review {
     background-color: #62aa6c;
     color: #fff;
-    font-weight: 450;
     border: 1px solid #fff;
     /* Adds a border around the text */
     border-radius: 5px;
@@ -255,8 +296,7 @@ body {
 
 .btn-add-review:hover {
     background-color: #fff;
-    color:  #62aa6c;
-    font-weight: 450;
+    color: #62aa6c;
     border: 1px solid #62aa6c;
     /* Adds a border around the text */
     border-radius: 5px;
@@ -283,7 +323,8 @@ body {
 .btn-edit-review:hover {
     background-color: #fff;
     color: #df9a34;
-    border: 1px solid #df9a34;;
+    border: 1px solid #df9a34;
+    ;
     /* Adds a border around the text */
     border-radius: 5px;
     /* Optional: Adds rounded corners */
@@ -319,6 +360,31 @@ body {
     /* Ensures the border only wraps around the content */
 }
 
+.btn-next, .btn-previous {
+    background-color: #C7384A;
+    color: #fff;
+    border: 1px solid #fff;
+    /* Adds a border around the text */
+    border-radius: 5px;
+    /* Optional: Adds rounded corners */
+    padding: 10px;
+    /* Adds spacing inside the border */
+    width: fit-content;
+    /* Ensures the border only wraps around the content */
+}
+
+.btn-next:hover, .btn-previous:hover {
+    background-color: #fff;
+    color: #C7384A;
+    border: 1px solid #C7384A;
+    /* Adds a border around the text */
+    border-radius: 5px;
+    /* Optional: Adds rounded corners */
+    padding: 10px;
+    /* Adds spacing inside the border */
+    width: fit-content;
+    /* Ensures the border only wraps around the content */
+}
 
 .link {
     color: #3D2A48;
@@ -375,7 +441,7 @@ body {
     margin: 5px;
     font-size: 16px;
     font-weight: 400;
-    background-color: #C7384A;
+    background-color: #6c8e51;
     color: #fff;
     text-align: center;
     text-decoration: none;
@@ -385,8 +451,8 @@ body {
 
 .btn-deployed:hover {
     background-color: #F7F2F2;
-    color: #C7384A;
-    border: 2px solid #C7384A;
+    color:#6c8e51;
+    border: 2px solid #6c8e51;
 }
 
 
@@ -412,4 +478,3 @@ footer {
     font-family: Roboto, sans-serif;
     font-size: 1.1rem;
 }
-
