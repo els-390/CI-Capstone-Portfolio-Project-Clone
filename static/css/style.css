@@ -1,6 +1,7 @@
 /* ----------GOOGLE FONTS---------- */
 @import url('https://fonts.googleapis.com/css2?family=Bungee+Shade&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
+/* ----------TYPOGRAPHY---------- */
 body {
     color: #3D2A48;
     font-family: Roboto, sans-serif;
@@ -26,7 +27,6 @@ body {
     color: #C7384A;
 }
 
-
 .login-status {
     color: #C7384A;
     font-weight: 400;
@@ -39,265 +39,22 @@ body {
     font-weight: 300;
 }
 
-.light-bg {
-    background-color: #F7F2F2;
+.project-title,
+.project-subtitle {
+    margin: 0;
 }
 
-.dark-bg {
-    background-color: #959FAF;
-}
-
-.main-bg {
-    background-color: #fff;
-}
-
-.card {
-    display: flex;
-    flex-direction: column;
-    /* Ensure the card body stacks vertically */
-    justify-content: space-between;
-    /* Distribute space evenly */
-    height: 100%;
-    /* Make all cards equal height */
-    background-color: #F7F2F2;
-    /* Optional: Background color */
-    border: 1px solid #ddd;
-    /* Optional: Border for styling */
-}
-
-.card-body {
-    flex-grow: 1;
-    /* Make the card body expand to fill available space */
-    display: flex;
-    flex-direction: column;
-    /* Keep card content stacked */
-    justify-content: space-between;
-    /* Evenly space content */
-}
-
-.card-img-top {
-    max-height: 250px;
-    /* Set a consistent maximum height */
-    width: 100%;
-    /* Ensure image spans the full width of the container */
-    object-fit: contain;
-    /* Ensures image is fully visible without cropping */
-    margin: 5px;
-    /* Optional: Add margin around the image */
-    display: block;
-    /* Remove unwanted space below image */
-    border: 2px solid #F7F2F2;
-    /* Optional: Add a border around the image */
-}
-
-.image-container {
-    position: relative;
-    overflow: hidden;
-    background-color: #fff;
-    height: 325px;               /* Fixed container height for larger screens */
-    width: 100%;                 /* Full width */
-    display: flex;
-    justify-content: center;     /* Horizontally center the image */
-    align-items: center;         /* Vertically center the image */
-}
-
-.image-flash {
-    position: absolute;
-    bottom: 10px;
-    left: 10px;
-    background-color: rgba(0, 0, 0, 0.5);
-    /* Optional: Flash effect */
-    color: white;
-    padding: 5px 10px;
-    border-radius: 5px;
-}
-
-.project-link {
-    text-decoration: none;
-    /* Remove link underline */
-    color: inherit;
-    /* Inherit text color */
-}
-
-.project-link:hover h2 {
-    text-decoration: underline;
-    /* Add underline on hover */
-}
-
-.image-container {
-    position: relative;
-}
-
-
-.navbar {
-    background-color: #F7F2F2;
-    color: #3D2A48;
-    font-size: 1.2rem;
-}
-
-.navbar-subtext {
-    color: #3D2A48;
-    text-decoration: underline;
-
-}
-
-.nav-link {
-    color: #3D2A48;
-}
-
-.navbar-collapse .nav-link {
-    padding: 2px 5px;
-    /* Adjust values as needed */
-}
-
-.navbar .nav-link.active {
-    color: #F7F2F2;
-    background-color: #C7384A;
-    /* Color for hover and active state */
-    text-decoration: underline;
-}
-
-.navbar .nav-link:hover {
-    background-color: #C7384A;
-    color: #F7F2F2
-        /* Color for hover and active state */
-}
-
-/* Change the font color for the navbar brand */
-.navbar .navbar-brand {
-    font-family: Merriweather, sans-serif;
-    font-weight: bold;
-    font-family: Bungee Shade, sans-serif;
-    font-size: 1.4rem;
-    font-weight: 700;
-    color: #3D2A48;
-}
-
-.navbar-toggler {
-    background-color: #C7384A;
-    /* Toggler button background color */
-    border: none;
-    /* Remove border if needed */
-    font-size: 18px;
-}
-
-/* Change the color of the toggler icon */
-.navbar-toggler-icon {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='white' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
-    /* White bars icon */
-    width: 30px;
-    /* Default size for larger screens */
-    height: 30px;
-    padding: 2px;
-}
-
-.image-flash {
-    bottom: 5%;
-    min-width: 30%;
-    text-align: center;
-    background-color: #C7384A;
-    border-radius: 5px;
-}
-
-.scale {
-    width: 100%;
-    height: auto;
-}
-
-.author {
-    color: #fff;
-    margin: 4px;
-    text-transform: uppercase;
-}
-
-.masthead {
-    margin-top: 10px;
-    overflow: hidden;
-    position: relative;
-    display: inline-block;
-    width: 100%;
-}
-
-.masthead-text {
-    background-color: #959FAF;
-    color: #3D2A48;
-    position: relative;
-    border-top-left-radius: 15px;
-    display: flex;
-    flex-direction: column; /* Stacks content vertically */
-    justify-content: center; /* Vertically center content */
-    align-items: center; /* Horizontally center content */
-    text-align: center; /* Center text inside h1 and p */
-    padding: 20px; /* Optional: Adjust padding for spacing */
-}
-
-.project-title, .project-subtitle {
-    margin: 0; /* Remove any default margin */
-}
-
-/* Optional styling for the text elements */
 .project-title {
-    font-family: 'Bungee Shade', sans-serif; /* Ensure you have the correct font */
-    font-size: 2.5rem; /* Adjust size as needed */
+    font-family: 'Bungee Shade', sans-serif;
+    font-size: 2.5rem;
     font-weight: 700;
 }
 
 .project-subtitle {
     font-family: 'Roboto', sans-serif;
-    font-size: 1.2rem; /* Adjust size as needed */
+    font-size: 1.2rem;
     text-transform: capitalize;
 }
-
-
-.masthead-image {
-    position: relative;
-    overflow: hidden;
-    border-top-right-radius: 15px;
-    /* Adjust the radius value */
-}
-
-.masthead-image:after {
-    /* content: ""; */
-    position: absolute;
-    top: 0;
-    right: 90%;
-    height: 100%;
-    width: 150%;
-    background: #959FAF;
-    -webkit-transform: skew(15deg);
-    -moz-transform: skew(15deg);
-    transform: skew(15deg);
-    z-index: 100;
-}
-
-.project-link {
-    text-decoration: none;
-    color: #8B8A95;
-}
-
-.page-btns {
-    background-color: #C7384A;
-    color: #F7F2F2;
-    font-size: 20px;
-    padding: 5px;
-    border-radius: 5px;
-    text-decoration: none;
-}
-
-.page-btns:hover {
-    background-color: #F7F2F2;
-    color: #C7384A;
-}
-
-/* .project-title {
-    margin-top: 15%;
-    margin-left: 10%;
-}
-
-.project-subtitle {
-    margin-left: 10%;
-    text-transform: capitalize;
-} */
 
 .card-title {
     color: #3D2A48;
@@ -314,18 +71,139 @@ body {
     font-weight: 400;
 }
 
+.card-text-projects {
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+}
+
+.project-technologies {
+    margin-bottom: 20px;
+}
+
+.project-links {
+    margin-bottom: 20px;
+}
+
+/* ----------BACKGROUND & COLOR SCHEMES---------- */
+.light-bg {
+    background-color: #F7F2F2;
+}
+
+.dark-bg {
+    background-color: #959FAF;
+}
+
+.main-bg {
+    background-color: #fff;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    background-color: #F7F2F2;
+    border: 1px solid #ddd;
+}
+
+.card-body {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card-img-top {
+    max-height: 250px;
+    width: 100%;
+    object-fit: contain;
+    margin: 5px;
+    display: block;
+    border: 2px solid #F7F2F2;
+}
+
+.image-container {
+    position: relative;
+    overflow: hidden;
+    background-color: #fff;
+    height: 325px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image-flash {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.masthead {
+    margin-top: 10px;
+    overflow: hidden;
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+
+.masthead-text {
+    background-color: #959FAF;
+    color: #3D2A48;
+    position: relative;
+    border-top-left-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+}
+
+.masthead-image {
+    position: relative;
+    overflow: hidden;
+    border-top-right-radius: 15px;
+}
+
+.masthead-image:after {
+    position: absolute;
+    top: 0;
+    right: 90%;
+    height: 100%;
+    width: 150%;
+    background: #959FAF;
+    transform: skew(15deg);
+    z-index: 100;
+}
+
+.featured-image-container {
+    margin-bottom: 20px;
+    padding: 10px;
+}
+
+footer {
+    background-color: #F7F2F2;
+    color: #3D2A48;
+    font-family: Roboto, sans-serif;
+    font-size: 1rem;
+    padding: 0 auto;
+    margin: mx auto;
+}
+
+/* ----------BUTTONS---------- */
 .btn-signup,
 .btn-edit {
     background-color: #C7384A;
     color: #fff;
     border: 1px solid #C7384A;
-    /* Adds a border around the text */
     border-radius: 5px;
-    /* Optional: Adds rounded corners */
     padding: 10px;
-    /* Adds spacing inside the border */
     width: fit-content;
-    /* Ensures the border only wraps around the content */
 }
 
 .btn-signup:hover,
@@ -333,118 +211,80 @@ body {
     background-color: #fff;
     color: #C7384A;
     border: 1px solid #C7384A;
-    /* Adds a border around the text */
+}
+
+.page-btns {
+    background-color: #C7384A;
+    color: #F7F2F2;
+    font-size: 20px;
+    padding: 5px;
     border-radius: 5px;
-    /* Optional: Adds rounded corners */
-    padding: 10px;
-    /* Adds spacing inside the border */
-    width: fit-content;
-    /* Ensures the border only wraps around the content */
+    text-decoration: none;
+}
+
+.page-btns:hover {
+    background-color: #F7F2F2;
+    color: #C7384A;
 }
 
 .btn-contact-submit {
     background-color: #C7384A;
     color: #fff;
     border: 1px solid #C7384A;
-    /* Adds a border around the text */
     border-radius: 5px;
-    /* Optional: Adds rounded corners */
     padding: 10px;
-    /* Adds spacing inside the border */
     width: fit-content;
-    /* Ensures the border only wraps around the content */
 }
 
 .btn-contact-submit:hover {
     background-color: #fff;
     color: #C7384A;
     border: 1px solid #C7384A;
-    /* Adds a border around the text */
-    border-radius: 5px;
-    /* Optional: Adds rounded corners */
-    padding: 10px;
-    /* Adds spacing inside the border */
-    width: fit-content;
-    /* Ensures the border only wraps around the content */
 }
 
 .btn-add-review {
     background-color: #62aa6c;
     color: #fff;
     border: 1px solid #fff;
-    /* Adds a border around the text */
     border-radius: 5px;
-    /* Optional: Adds rounded corners */
     padding: 10px;
-    /* Adds spacing inside the border */
     width: fit-content;
-    /* Ensures the border only wraps around the content */
 }
 
 .btn-add-review:hover {
     background-color: #fff;
     color: #62aa6c;
     border: 1px solid #62aa6c;
-    /* Adds a border around the text */
-    border-radius: 5px;
-    /* Optional: Adds rounded corners */
-    padding: 10px;
-    /* Adds spacing inside the border */
-    width: fit-content;
-    /* Ensures the border only wraps around the content */
 }
 
 .btn-edit-review {
     background-color: #df9a34;
     color: #fff;
     border: 1px solid #fff;
-    /* Adds a border around the text */
     border-radius: 5px;
-    /* Optional: Adds rounded corners */
     padding: 10px;
-    /* Adds spacing inside the border */
     width: fit-content;
-    /* Ensures the border only wraps around the content */
 }
 
 .btn-edit-review:hover {
     background-color: #fff;
     color: #df9a34;
     border: 1px solid #df9a34;
-    ;
-    /* Adds a border around the text */
-    border-radius: 5px;
-    /* Optional: Adds rounded corners */
-    padding: 10px;
-    /* Adds spacing inside the border */
-    width: fit-content;
-    /* Ensures the border only wraps around the content */
 }
 
 .btn-delete-review {
     background-color: #C7384A;
     color: #fff;
     border: 1px solid #fff;
-    /* Adds a border around the text */
     border-radius: 5px;
-    /* Optional: Adds rounded corners */
     padding: 10px;
-    /* Adds spacing inside the border */
     width: fit-content;
-    /* Ensures the border only wraps around the content */
 }
 
 .btn-delete-review:hover {
     background-color: #fff;
     color: #C7384A;
     border: 1px solid #C7384A;
-    /* Adds a border around the text */
-    border-radius: 5px;
-    /* Optional: Adds rounded corners */
-    padding: 10px;
-    /* Adds spacing inside the border */
-    width: fit-content;
-    /* Ensures the border only wraps around the content */
 }
 
 .btn-next,
@@ -452,13 +292,9 @@ body {
     background-color: #C7384A;
     color: #fff;
     border: 1px solid #fff;
-    /* Adds a border around the text */
     border-radius: 5px;
-    /* Optional: Adds rounded corners */
     padding: 10px;
-    /* Adds spacing inside the border */
     width: fit-content;
-    /* Ensures the border only wraps around the content */
 }
 
 .btn-next:hover,
@@ -466,42 +302,6 @@ body {
     background-color: #fff;
     color: #C7384A;
     border: 1px solid #C7384A;
-    /* Adds a border around the text */
-    border-radius: 5px;
-    /* Optional: Adds rounded corners */
-    padding: 10px;
-    /* Adds spacing inside the border */
-    width: fit-content;
-    /* Ensures the border only wraps around the content */
-}
-
-.link {
-    color: #3D2A48;
-    text-decoration: none;
-}
-
-.link:hover,
-.link:active {
-    color: #BF9175;
-    text-decoration: underline;
-}
-
-.btn-like {
-    color: #3D2A48;
-    border: none;
-    background: transparent;
-}
-
-.btn-delete {
-    color: #fff;
-    background: #3D2A48;
-}
-
-.btn-like:hover,
-.btn-like:active {
-    color: #3D2A48;
-    background: transparent;
-    border: none;
 }
 
 .btn-github {
@@ -544,24 +344,81 @@ body {
     border: 2px solid #6c8e51;
 }
 
-
-.faded {
-    color: #6c8e51;
+/* ----------LINKS---------- */
+.project-link {
+    text-decoration: none;
+    color: inherit;
 }
 
-.approval {
-    color: #C7384A
+.project-link:hover h2 {
+    text-decoration: underline;
 }
 
-footer {
+.link {
+    color: #3D2A48;
+    text-decoration: none;
+}
+
+.link:hover,
+.link:active {
+    color: #BF9175;
+    text-decoration: underline;
+}
+
+.navbar .nav-link.active {
+    color: #F7F2F2;
+    background-color: #C7384A;
+    text-decoration: underline;
+}
+
+.navbar .nav-link:hover {
+    background-color: #C7384A;
+    color: #F7F2F2;
+}
+
+.navbar .navbar-brand {
+    font-family: Merriweather, sans-serif;
+    font-weight: bold;
+    font-family: Bungee Shade, sans-serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #3D2A48;
+}
+
+.navbar-collapse .nav-link {
+    padding: 2px 5px;
+}
+
+.navbar {
     background-color: #F7F2F2;
     color: #3D2A48;
-    font-family: Roboto, sans-serif;
-    font-size: 1rem;
-    padding: 0 auto;
-    margin: mx auto;
+    font-size: 1.2rem;
 }
 
+.navbar-subtext {
+    color: #3D2A48;
+    text-decoration: underline;
+}
+
+.nav-link {
+    color: #3D2A48;
+}
+
+/* ----------NAVBAR---------- */
+.navbar-toggler {
+    background-color: #C7384A;
+    border: none;
+    font-size: 18px;
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='white' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+    width: 30px;
+    height: 30px;
+    padding: 2px;
+}
+
+/* ----------SOCIAL & FOOTER---------- */
 .social {
     color: #3D2A48;
     font-family: Roboto, sans-serif;
@@ -572,4 +429,32 @@ footer {
     color: #3D2A48;
     font-family: Roboto, sans-serif;
     font-size: 1.0rem;
+}
+
+/* ----------OTHER---------- */
+.faded {
+    color: #6c8e51;
+}
+
+.approval {
+    color: #C7384A;
+}
+
+.image-flash {
+    bottom: 5%;
+    min-width: 30%;
+    text-align: center;
+    background-color: #C7384A;
+    border-radius: 5px;
+}
+
+.scale {
+    width: 100%;
+    height: auto;
+}
+
+.author {
+    color: #fff;
+    margin: 4px;
+    text-transform: uppercase;
 }
