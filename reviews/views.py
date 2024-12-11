@@ -17,10 +17,13 @@ class ReviewListView(ListView):
     
 def review_list(request):
     if request.user.is_authenticated:
+        # Display approved reviews and pending reviews by the logged-in user
         reviews = Review.objects.filter(approved=True) | Review.objects.filter(author=request.user)
     else:
         reviews = Review.objects.filter(approved=True)
+
     return render(request, 'reviews/review_list.html', {'reviews': reviews})
+
 
 
 class ReviewCreateView(CreateView):
@@ -50,6 +53,14 @@ class ReviewUpdateView(UpdateView):
     context_object_name = 'review'
     success_url = reverse_lazy('review')
 
+    def form_valid(self, form):
+        # Reset the approval status when the review is edited
+        review = form.save(commit=False)
+        review.approved = False
+        review.save()
+        messages.add_message(self.request, messages.SUCCESS, 'Review updated and sent for approval!')
+        return super().form_valid(form)
+
 @login_required
 def edit_review(request, review_id):
     review = get_object_or_404(Review, pk=review_id)
@@ -57,16 +68,20 @@ def edit_review(request, review_id):
     if request.method == "POST":
         review_form = ReviewForm(data=request.POST, instance=review)
         if review_form.is_valid():
-            review_form.save()
-            messages.add_message(request, messages.SUCCESS, 'Review Updated!')
+            updated_review = review_form.save(commit=False)
+            # Reset approval status when the review is edited
+            updated_review.approved = False
+            updated_review.save()
+            messages.success(request, "Review updated! It will be re-evaluated for approval.")
             return HttpResponseRedirect(reverse('review'))
         else:
-            messages.add_message(request, messages.ERROR, 'Error updating your review!')
+            messages.error(request, "Error updating your review!")
 
     else:
         review_form = ReviewForm(instance=review)
 
     return render(request, 'reviews/edit_review.html', {'form': review_form, 'review': review})
+
 
 
 
