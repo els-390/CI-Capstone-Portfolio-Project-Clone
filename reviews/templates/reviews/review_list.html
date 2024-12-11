@@ -12,11 +12,13 @@
             <div>
                 {% for review in reviews %}
                 <div>
-                    <p class="approval {% if not review.approved and review.author == request.user %} faded {% elif not review.approved %} d-none{% endif %}">
-                        This review is awaiting approval
-                    </p>
+                    {% if not review.approved %}
+                    {% if review.author == request.user %}
+                    <p class="approval faded">This review is awaiting approval</p>
+                    {% endif %}
+                    {% endif %}
                     <h3>{{ review.review_title }}</h3>
-                    <p><strong>By:</strong> {{ review.author }} on {{ review.created_on|date:"F j, Y" }}</p>
+                    <p><strong>By:</strong> {{ review.reviewer_name }} on {{ review.created_on|date:"F j, Y" }}</p>
                     <p><strong>Rating:</strong> {{ review.rating }}/5</p>
                     <p>{{ review.content }}</p>
                     {% if user.is_authenticated and review.author == user %}
