@@ -170,17 +170,6 @@ body {
     border-top-right-radius: 15px;
 }
 
-.masthead-image:after {
-    position: absolute;
-    top: 0;
-    right: 90%;
-    height: 100%;
-    width: 150%;
-    background: #959FAF;
-    transform: skew(15deg);
-    z-index: 100;
-}
-
 .featured-image-container {
     margin-bottom: 20px;
     padding: 10px;
@@ -254,7 +243,7 @@ footer {
 .btn-add-review:hover {
     background-color: #fff;
     color: #62aa6c;
-    border: 1px solid #62aa6c;
+    border: 1px solid #6c8e51;
 }
 
 .btn-edit-review {
