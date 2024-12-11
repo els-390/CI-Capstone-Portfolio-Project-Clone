@@ -60,8 +60,8 @@ body {
     height: 100%;
     /* Make all cards equal height */
     background-color: #F7F2F2;
-        /* Optional: Background color */
-        border: 1px solid #ddd;
+    /* Optional: Background color */
+    border: 1px solid #ddd;
     /* Optional: Border for styling */
 }
 
@@ -77,18 +77,28 @@ body {
 
 .card-img-top {
     max-height: 250px;
-    /* Consistent image height */
-    object-fit: cover;
-    /* Crop image to fit container */
+    /* Set a consistent maximum height */
     width: 100%;
-    /* Ensure image spans the card width */
+    /* Ensure image spans the full width of the container */
+    object-fit: contain;
+    /* Ensures image is fully visible without cropping */
+    margin: 5px;
+    /* Optional: Add margin around the image */
+    display: block;
+    /* Remove unwanted space below image */
+    border: 2px solid #F7F2F2;
+    /* Optional: Add a border around the image */
 }
 
 .image-container {
     position: relative;
     overflow: hidden;
-    height: 325px;
-    /* Consistent height for all images */
+    background-color: #fff;
+    height: 325px;               /* Fixed container height for larger screens */
+    width: 100%;                 /* Full width */
+    display: flex;
+    justify-content: center;     /* Horizontally center the image */
+    align-items: center;         /* Vertically center the image */
 }
 
 .image-flash {
@@ -213,8 +223,31 @@ body {
     color: #3D2A48;
     position: relative;
     border-top-left-radius: 15px;
-    /* Adjust the radius value */
+    display: flex;
+    flex-direction: column; /* Stacks content vertically */
+    justify-content: center; /* Vertically center content */
+    align-items: center; /* Horizontally center content */
+    text-align: center; /* Center text inside h1 and p */
+    padding: 20px; /* Optional: Adjust padding for spacing */
 }
+
+.project-title, .project-subtitle {
+    margin: 0; /* Remove any default margin */
+}
+
+/* Optional styling for the text elements */
+.project-title {
+    font-family: 'Bungee Shade', sans-serif; /* Ensure you have the correct font */
+    font-size: 2.5rem; /* Adjust size as needed */
+    font-weight: 700;
+}
+
+.project-subtitle {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.2rem; /* Adjust size as needed */
+    text-transform: capitalize;
+}
+
 
 .masthead-image {
     position: relative;
@@ -256,7 +289,7 @@ body {
     color: #C7384A;
 }
 
-.project-title {
+/* .project-title {
     margin-top: 15%;
     margin-left: 10%;
 }
@@ -264,7 +297,7 @@ body {
 .project-subtitle {
     margin-left: 10%;
     text-transform: capitalize;
-}
+} */
 
 .card-title {
     color: #3D2A48;
