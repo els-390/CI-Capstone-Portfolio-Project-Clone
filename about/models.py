@@ -12,7 +12,8 @@ class About(models.Model):
 
     def __str__(self):
         return self.title
-    
+
+
 class ContactRequest(models.Model):
     """
     Stores a single contact request message
@@ -25,4 +26,3 @@ class ContactRequest(models.Model):
 
     def __str__(self):
         return f"Contact request from {self.name}"
-    
