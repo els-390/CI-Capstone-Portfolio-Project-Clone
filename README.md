@@ -410,15 +410,15 @@ The deployed site can be found [here](https://ci-full-stack-portfolio-app-7c4baf
 
 ### Successes
 
-- Effective use of AI tools to help with development process to improve understanding of some features contributed to the development process
-- Produced a completed project within the alloted time
+- Effective use of AI tools to help with the development process to improve understanding of some features contributed to the development process
+- Produced a completed project within the allotted time
 - Implemented a custom model for the Reviews app with CRUD functionality
 - Fully responsive accessible design
 
 ### Challenges
 
-- Some challenges modifying existing models
-- Difficulty getting approvals to functional correctly when submitting new comments and reviews, editting these and resubmiting for re-approval
+- Some challenges in modifying existing models
+- Difficulty getting approvals to functional correctly when submitting new comments and reviews, editing these and resubmitting for re-approval
 - Challenges updating CSS template in some cases where multiple classes were used
 
 ### Final Thoughts
@@ -427,11 +427,12 @@ This project has been very challenging but also rewarding. I am pleased with the
 
 ### Future Improvements & Iterations
 
-- Add a seperate blog
-- Create a seperate homepage that has sections for an introduction, skills, experience, projects, reviews and blog
+- Add a separate blog
+- Create a separate homepage that has sections for an introduction, skills, experience, projects, reviews and blog
 - Improve the layout of the About, Contact and Reviews pages so that the content fits either above or below the fold, not on the line for accessibility and design
 
 ## Credits
 
 - This project is based on the "I Think Therefore I Blog" project from the Code Institute LMS
-- Help received to troubleshoot varuious issues during the project from Coding Coach team at Code Institute and Headforwards Bootcamp cohort
+- Help received to troubleshoot various issues during the project from Coding Coach team at Code Institute and Headforwards Bootcamp cohort
+
