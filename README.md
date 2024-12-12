@@ -348,15 +348,9 @@ No errors were found with our own CSS code when passing through the official Jig
 
 <hr>
 
-- Python
-
-All Python code was tested for PEP8 compatibility. Some small issues were detected around syntax and spacing with some of these corrected and they do not impact functionality. 
-
-<img src=static/images/readme/validation/comments_js.png alt="JS Hint for comments.js">
-
 - Javascript
 
-- All Javascript code was tested for errors with JSHint.
+All Javascript code was tested for errors with JSHint.
 
 <img src=static/images/readme/validation/comments_js.png alt="JS Hint for comments.js">
 
