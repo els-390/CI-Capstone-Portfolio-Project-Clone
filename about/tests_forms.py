@@ -21,6 +21,7 @@ class TestContactForm(TestCase):
         """Test for the 'email' field"""
         form = ContactForm({
             'name': 'Matt',
+            
             'subject': 'Hi',
             'email': '',
             'message': 'Hello!'
@@ -42,3 +43,4 @@ class TestContactForm(TestCase):
             form.is_valid(),
             msg="Message was not provided, but the form is valid"
         )
+        
