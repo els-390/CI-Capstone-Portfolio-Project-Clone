@@ -411,14 +411,22 @@ footer {
 .social {
     color: #3D2A48;
     font-family: Roboto, sans-serif;
-    font-size: 1.0rem;
+    font-size: 1.1rem;
 }
 
 .social-icons {
     color: #3D2A48;
     font-family: Roboto, sans-serif;
-    font-size: 1.0rem;
+    font-size: 1.1rem;
 }
+
+.social:hover, 
+.social-icons:hover {
+    color: #C7384A;
+    font-family: Roboto, sans-serif;
+    font-size: 1.1rem;
+}
+
 
 /* ----------OTHER---------- */
 .faded {
