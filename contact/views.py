@@ -17,3 +17,4 @@ def contact_view(request):
 
     # Pass the form instance and messages to the template
     return render(request, 'contact.html', {'contact_form': form})
+

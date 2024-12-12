@@ -5,7 +5,7 @@
 body {
     color: #3D2A48;
     font-family: Roboto, sans-serif;
-    font-size: 12;
+    font-size: 14px;
 }
 
 .alert-style {
@@ -24,6 +24,9 @@ body {
 }
 
 .brand-surname {
+    font-family: Bungee Shade, sans-serif;
+    font-size: 1.6rem;
+    font-weight: 700;
     color: #C7384A;
 }
 
@@ -180,8 +183,8 @@ footer {
     color: #3D2A48;
     font-family: Roboto, sans-serif;
     font-size: 1rem;
-    padding: 0 auto;
-    margin: mx auto;
+    padding: 0;
+    margin: 0;
 }
 
 /* ----------BUTTONS---------- */
