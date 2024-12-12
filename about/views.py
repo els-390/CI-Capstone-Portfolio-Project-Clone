@@ -33,4 +33,3 @@ def about_me(request):
         {"about": about,
         "contact_form": contact_form},
     )
-    
