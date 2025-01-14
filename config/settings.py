@@ -34,7 +34,7 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = True
 
-ALLOWED_HOSTS = ['8000-els390-cicapstoneportfo-lluev0m8820.ws.codeinstitute-ide.net','.herokuapp.com']
+ALLOWED_HOSTS = ['8000-els390-cicapstoneportfo-lluev0m8820.ws.codeinstitute-ide.net','.herokuapp.com','localhost']
 
 # Application definition
 
@@ -55,7 +55,6 @@ INSTALLED_APPS = [
     'django_summernote',
     'cloudinary',
     'about',
-    'blog',
     'contact',
     # 'home'
     'projects',
